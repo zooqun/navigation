@@ -318,7 +318,7 @@ def main():
     # 文件路径
     current_dir = os.path.dirname(os.path.abspath(__file__))
     pintree_json_path = os.path.join(current_dir, 'pintree.json')
-    html_file_path = os.path.join(current_dir, 'static_navigation_standalone.html')
+    html_file_path = os.path.join(current_dir, 'index.html')
     
     # 检查文件是否存在
     if not os.path.exists(pintree_json_path):
