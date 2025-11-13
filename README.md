@@ -1,0 +1,1 @@
+修改时使用pintree插件导出书签json文件，并运行py程序修改index.html，将修改同步到repo，等待片刻即可
