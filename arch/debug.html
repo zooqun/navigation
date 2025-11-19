@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试页面</title>
+</head>
+<body>
+    <h1>调试页面</h1>
+    <button onclick="loadData()">加载JSON数据</button>
+    <div id="output"></div>
+    
+    <script>
+        async function loadData() {
+            const output = document.getElementById('output');
+            output.innerHTML = '<p>正在加载数据...</p>';
+            
+            try {
+                const timestamp = new Date().getTime();
+                console.log('开始加载数据，时间戳:', timestamp);
+                
+                const response = await fetch(`pintree.json?t=${timestamp}`);
+                console.log('响应状态:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('数据加载成功:', data);
+                
+                // 显示数据的第一个层级
+                output.innerHTML = `
+                    <h2>数据加载成功</h2>
+                    <p>时间: ${new Date().toLocaleString()}</p>
+                    <p>顶级项目数量: ${data.length}</p>
+                    <h3>顶级分类:</h3>
+                    <ol>
+                        ${data.map((item, index) => `<li><strong>${item.title}</strong> (${item.type}) - ${item.children ? item.children.length : 0} 个子项目</li>`).join('')}
+                    </ol>
+                `;
+                
+            } catch (error) {
+                console.error('加载失败:', error);
+                output.innerHTML = `<h2>加载失败</h2><p>${error.message}</p>`;
+            }
+        }
+        
+        // 页面加载时自动执行
+        window.onload = function() {
+            console.log('页面加载完成，准备加载数据...');
+            loadData();
+        };
+    </script>
+</body>
+</html>

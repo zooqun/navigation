@@ -11,6 +11,251 @@
         "children": [
           {
             "type": "folder",
+            "addDate": 1762159816280,
+            "title": "通用搜索工具",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1666276234000,
+                "title": "神秘的热心网友 - 收集免费实用有趣的东西，做最好的资源导航",
+                "icon": "https://logo.clearbit.com/imyshare.com",
+                "url": "https://imyshare.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1702953773000,
+                "title": "Internet Archive: Digital Library of Free & Borrowable Books, Movies, Music & Wayback Machine",
+                "icon": "https://logo.clearbit.com/archive.org",
+                "url": "https://archive.org/"
+              },
+              {
+                "type": "link",
+                "addDate": 1758347629577,
+                "title": "学霸盘 - 百度网盘学习资料搜索下载神器",
+                "icon": "https://logo.clearbit.com/www.xuebapan.com",
+                "url": "https://www.xuebapan.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1758347758907,
+                "title": "盘搜-PanSeeker - 全网网盘资源聚合搜索",
+                "icon": "https://logo.clearbit.com/www.panseeker.com",
+                "url": "https://www.panseeker.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1758348209313,
+                "title": "珈珈搜索 - 全网优质网盘资源搜索聚合平台",
+                "icon": "https://logo.clearbit.com/feapi.xyz",
+                "url": "https://feapi.xyz/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333471,
+                "title": "超能搜 - 百度网盘搜索神器",
+                "icon": "https://logo.clearbit.com/www.chaonengso.com",
+                "url": "https://www.chaonengso.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1572836262000,
+                "title": "YourBittorrent",
+                "icon": "https://logo.clearbit.com/yourbittorrent.com",
+                "url": "https://yourbittorrent.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1572846623000,
+                "title": "Torrent Downloads - download free torrents!",
+                "icon": "https://logo.clearbit.com/www.torrentdownloads.me",
+                "url": "https://www.torrentdownloads.me/"
+              },
+              {
+                "type": "link",
+                "addDate": 1480769369000,
+                "title": "Download music, movies, games, software! The Pirate Bay - The galaxy's most resilient BitTorrent site",
+                "icon": "https://logo.clearbit.com/thepiratebay.org",
+                "url": "https://thepiratebay.org/"
+              },
+              {
+                "type": "link",
+                "addDate": 1705054012000,
+                "title": "小纸条-开放纯粹的资源网站",
+                "icon": "https://logo.clearbit.com/ali.gitcafe.ink",
+                "url": "https://ali.gitcafe.ink/"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1762159981529,
+            "title": "热点资讯",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1759918333161,
+                "title": "BBC News",
+                "icon": "https://logo.clearbit.com/www.bbc.com",
+                "url": "https://www.bbc.com/zhongwen/simp"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333490,
+                "title": "今日热榜官网",
+                "icon": "https://logo.clearbit.com/tophub.today",
+                "url": "https://tophub.today/"
+              },
+              {
+                "type": "link",
+                "addDate": 1761876776146,
+                "title": "极客公园 - Qi Reader",
+                "icon": "https://logo.clearbit.com/www.qireader.com",
+                "url": "https://www.qireader.com/subscriptions/rmREjBzDL2LAQJdN"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1762160718169,
+            "title": "影视音",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1762174459233,
+                "title": "Vfine Music - 商用版权音乐平台,专注正版音乐授权服务",
+                "icon": "https://logo.clearbit.com/www.vfinemusic.com",
+                "url": "https://www.vfinemusic.com/music-library?utm_source=baidu&utm_medium=search&utm_campaign=C-%E7%AB%9E%E5%93%81%E8%AF%8D&utm_content=%E7%AB%9E%E5%93%81%E5%93%81%E7%89%8C%E4%B8%AD%E6%96%87-B&utm_term=%E7%88%B1%E7%BB%99%E7%BD%91&bd_vid=8455043507776376630"
+              },
+              {
+                "type": "link",
+                "addDate": 1762174459240,
+                "title": "分享交流下载字幕平台 - SubHD",
+                "icon": "https://logo.clearbit.com/subhd.tv",
+                "url": "https://subhd.tv/"
+              },
+              {
+                "type": "link",
+                "addDate": 1762174459247,
+                "title": "Sub DH 高清影视下载",
+                "icon": "https://logo.clearbit.com/subdh.com",
+                "url": "https://subdh.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1762174459255,
+                "title": "耐卡影音论坛-耐卡网旗下美剧影视论坛|欧美影音|日韩影音|港台国产影音|欧美剧集|日韩剧集|美女MM|耐卡影视-MC影讯网_原 耐卡影音论坛_ncarbbs - Ncar Team!",
+                "icon": "https://logo.clearbit.com/mcar.vip",
+                "url": "http://mcar.vip/forum.php"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1762159822957,
+            "title": "图片",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1759918333259,
+                "title": "360°航拍全景，全球360°虚拟游览，地球上最有趣的地方照片",
+                "icon": "https://logo.clearbit.com/airpano.org.cn",
+                "url": "https://airpano.org.cn/"
+              },
+              {
+                "type": "link",
+                "addDate": 1705053742000,
+                "title": "Awesome Wallpapers - wallhaven.cc",
+                "icon": "https://logo.clearbit.com/wallhaven.cc",
+                "url": "https://wallhaven.cc/"
+              },
+              {
+                "type": "link",
+                "addDate": 1715771003000,
+                "title": "Pushkeen.AI - Discover the best push notifications to grow your business",
+                "icon": "https://logo.clearbit.com/pushkeen.ai",
+                "url": "https://pushkeen.ai/"
+              },
+              {
+                "type": "link",
+                "addDate": 1487688529000,
+                "title": "Iconfont-阿里巴巴矢量图标库",
+                "icon": "https://logo.clearbit.com/www.iconfont.cn",
+                "url": "http://www.iconfont.cn/"
+              },
+              {
+                "type": "link",
+                "addDate": 1510740934000,
+                "title": "Free Stock Photos • picjumbo",
+                "icon": "https://logo.clearbit.com/picjumbo.com",
+                "url": "https://picjumbo.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1510740812000,
+                "title": "Beautiful Free Images | Unsplash",
+                "icon": "https://logo.clearbit.com/unsplash.com",
+                "url": "https://unsplash.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1510741035000,
+                "title": "NASA Image and Video Library",
+                "icon": "https://logo.clearbit.com/images.nasa.gov",
+                "url": "https://images.nasa.gov/"
+              },
+              {
+                "type": "link",
+                "addDate": 1520416456000,
+                "title": "免费图片 - Pixabay",
+                "icon": "https://logo.clearbit.com/pixabay.com",
+                "url": "https://pixabay.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333378,
+                "title": "Librestock Photos - Free Stock Photo Search Engine",
+                "icon": "https://logo.clearbit.com/librestock.com",
+                "url": "https://librestock.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1487688529000,
+                "title": "Design-Ready Objects for Adobe Photoshop",
+                "icon": "https://logo.clearbit.com/www.pixelsquid.com",
+                "url": "https://www.pixelsquid.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1760804858169,
+                "title": "Color wheel, a color palette generator | Adobe Color",
+                "icon": "https://logo.clearbit.com/color.adobe.com",
+                "url": "https://color.adobe.com/create/color-wheel"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333373,
+                "title": "Free Icons and Icon packs | +500,000 icons to download - Findicons.com",
+                "icon": "https://logo.clearbit.com/findicons.com",
+                "url": "https://findicons.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333531,
+                "title": "konachan.net - Konachan.com Anime Wallpapers",
+                "icon": "https://logo.clearbit.com/konachan.net",
+                "url": "https://konachan.net/"
+              },
+              {
+                "type": "link",
+                "addDate": 1762846811113,
+                "title": "ByteDance IconPark",
+                "icon": "https://logo.clearbit.com/iconpark.oceanengine.com",
+                "url": "https://iconpark.oceanengine.com/home"
+              }
+            ]
+          },
+          {
+            "type": "folder",
             "addDate": 1762159714748,
             "title": "官方布告",
             "children": [
@@ -45,7 +290,7 @@
               {
                 "type": "link",
                 "addDate": 1702905441000,
-                "title": "首页",
+                "title": "中国裁判文书网",
                 "icon": "https://logo.clearbit.com/wenshu.court.gov.cn",
                 "url": "https://wenshu.court.gov.cn/"
               },
@@ -137,149 +382,9 @@
           },
           {
             "type": "folder",
-            "addDate": 1758889039139,
-            "title": "工科软件",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1583656499000,
-                "title": "3DMAX 室内效果图初级案例课程_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
-                "icon": "https://logo.clearbit.com/www.bilibili.com",
-                "url": "https://www.bilibili.com/video/av22977947?p=2"
-              },
-              {
-                "type": "link",
-                "addDate": 1523984557000,
-                "title": "3D ContentCentral",
-                "icon": "https://logo.clearbit.com/www.3dcontentcentral.com",
-                "url": "https://www.3dcontentcentral.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1586671627000,
-                "title": "Sketchfab - Publish & find 3D models online",
-                "icon": "https://logo.clearbit.com/sketchfab.com",
-                "url": "https://sketchfab.com/"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1758889039134,
-            "title": "人文素质",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1702906632000,
-                "title": "开讲啦视频_CCTV节目官网-CCTV-1_央视网(cctv.com)",
-                "icon": "https://logo.clearbit.com/tv.cctv.com",
-                "url": "http://tv.cctv.com/lm/kjl/videoset/index.shtml"
-              },
-              {
-                "type": "link",
-                "addDate": 1702906559000,
-                "title": "《2023主持人大赛》 20231006",
-                "icon": "https://logo.clearbit.com/tv.cctv.com",
-                "url": "https://tv.cctv.com/2023/10/06/VIDEbkmJmhebJeT7h8TdZf9c231006.shtml?spm=C55953877151.PuvgIQ6NQbQd.0.0"
-              },
-              {
-                "type": "link",
-                "addDate": 1702906438000,
-                "title": "新华广播_新华网",
-                "icon": "https://logo.clearbit.com/www.news.cn",
-                "url": "http://www.news.cn/video/xinhuaradio/zbslb/index.html"
-              },
-              {
-                "type": "link",
-                "addDate": 1684508833000,
-                "title": "续资治通鉴长编 - 中国哲学书电子化计划",
-                "icon": "https://logo.clearbit.com/ctext.org",
-                "url": "https://ctext.org/wiki.pl?if=gb&res=520633&remap=gb"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333212,
-                "title": "全历史",
-                "icon": "https://logo.clearbit.com/www.allhistory.com",
-                "url": "https://www.allhistory.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333217,
-                "title": "历史地图网-中国历史地图集-古代历史地图-中国古地图",
-                "icon": "https://logo.clearbit.com/www.laozhaopian5.com",
-                "url": "http://www.laozhaopian5.com/ditu/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333221,
-                "title": "历史地图_地图窝",
-                "icon": "https://logo.clearbit.com/m.onegreen.net",
-                "url": "http://m.onegreen.net/maps/List/List_1619.html"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333343,
-                "title": "中国历史地图集 谭其骧主编_中国历史地图集_国学导航",
-                "icon": "https://logo.clearbit.com/www.guoxue123.com",
-                "url": "http://www.guoxue123.com/other/map/zgmap/index.htm"
-              },
-              {
-                "type": "link",
-                "addDate": 1702905358000,
-                "title": "中国纪录片网-国家级纪录片新媒体综合性产业运营平台_央视网",
-                "icon": "https://logo.clearbit.com/www.docuchina.cn",
-                "url": "http://www.docuchina.cn/"
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1758889039126,
             "title": "个人终端",
             "children": [
-              {
-                "type": "folder",
-                "addDate": 1756601486869,
-                "title": "AI agent",
-                "children": [
-                  {
-                    "type": "link",
-                    "addDate": 1756284374000,
-                    "title": "使用Cursor和Claude AI打造你的第一个App_cursor claude-CSDN博客",
-                    "icon": "https://logo.clearbit.com/blog.csdn.net",
-                    "url": "https://blog.csdn.net/csdn1561168266/article/details/143925398"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1756284381000,
-                    "title": "手把手实现Cursor无缝接入Claude AI（附避坑指南）_cursor claude-CSDN博客",
-                    "icon": "https://logo.clearbit.com/blog.csdn.net",
-                    "url": "https://blog.csdn.net/Lilith_0828/article/details/146882556"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1756284384000,
-                    "title": "Claude Code真的牛逼，Cursor不香了（附最新保姆级教程） - 知乎",
-                    "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
-                    "url": "https://zhuanlan.zhihu.com/p/1939833494357402338"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759918259045,
-                    "title": "全网最细讲解 | 一文看懂开源自动化神器 n8n - 知乎",
-                    "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
-                    "url": "https://zhuanlan.zhihu.com/p/1935718749270418825"
-                  },
-                  {
-                    "type": "link",
-                    "addDate": 1759918259042,
-                    "title": "DeepSeek 本地化部署（保姆喂饭级教程） - 知乎",
-                    "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
-                    "url": "https://zhuanlan.zhihu.com/p/21030210489"
-                  }
-                ]
-              },
               {
                 "type": "link",
                 "addDate": 1758535745255,
@@ -345,20 +450,6 @@
               },
               {
                 "type": "link",
-                "addDate": 1609818438000,
-                "title": "baotou | Weather Location Codes/IDs for Apple iPhone, Android Tablet, Linux Ubuntu",
-                "icon": "https://logo.clearbit.com/weather.codes",
-                "url": "https://weather.codes/search/?q=baotou"
-              },
-              {
-                "type": "link",
-                "addDate": 1583481400000,
-                "title": "Manual - Rainmeter",
-                "icon": "https://logo.clearbit.com/docs.rainmeter.net",
-                "url": "https://docs.rainmeter.net/manual/"
-              },
-              {
-                "type": "link",
                 "addDate": 1759918259037,
                 "title": "windows11 安装WSL2全流程_wsl2安装-CSDN博客",
                 "icon": "https://logo.clearbit.com/blog.csdn.net",
@@ -405,6 +496,69 @@
                 "title": "Windows LTSC Download | MAS",
                 "icon": "https://logo.clearbit.com/massgrave.dev",
                 "url": "https://massgrave.dev/windows_ltsc_links"
+              },
+              {
+                "type": "link",
+                "addDate": 1583481400000,
+                "title": "Manual - Rainmeter",
+                "icon": "https://logo.clearbit.com/docs.rainmeter.net",
+                "url": "https://docs.rainmeter.net/manual/"
+              },
+              {
+                "type": "link",
+                "addDate": 1763112099779,
+                "title": "Dashboard 1.8 Rainmeter Theme",
+                "icon": "https://logo.clearbit.com/visualskins.com",
+                "url": "https://visualskins.com/skin/dashboard-18"
+              },
+              {
+                "type": "link",
+                "addDate": 1763112103441,
+                "title": "Skin Frost Glass V7 for Rainmeter download on VSThemes.org",
+                "icon": "https://logo.clearbit.com/vsthemes.org",
+                "url": "https://vsthemes.org/en/skins/rainmeter/68411-frost-glass-v7.html"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1756601486869,
+            "title": "AI agent",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1756284374000,
+                "title": "使用Cursor和Claude AI打造你的第一个App_cursor claude-CSDN博客",
+                "icon": "https://logo.clearbit.com/blog.csdn.net",
+                "url": "https://blog.csdn.net/csdn1561168266/article/details/143925398"
+              },
+              {
+                "type": "link",
+                "addDate": 1756284381000,
+                "title": "手把手实现Cursor无缝接入Claude AI（附避坑指南）_cursor claude-CSDN博客",
+                "icon": "https://logo.clearbit.com/blog.csdn.net",
+                "url": "https://blog.csdn.net/Lilith_0828/article/details/146882556"
+              },
+              {
+                "type": "link",
+                "addDate": 1756284384000,
+                "title": "Claude Code真的牛逼，Cursor不香了（附最新保姆级教程） - 知乎",
+                "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
+                "url": "https://zhuanlan.zhihu.com/p/1939833494357402338"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918259045,
+                "title": "全网最细讲解 | 一文看懂开源自动化神器 n8n - 知乎",
+                "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
+                "url": "https://zhuanlan.zhihu.com/p/1935718749270418825"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918259042,
+                "title": "DeepSeek 本地化部署（保姆喂饭级教程） - 知乎",
+                "icon": "https://logo.clearbit.com/zhuanlan.zhihu.com",
+                "url": "https://zhuanlan.zhihu.com/p/21030210489"
               }
             ]
           },
@@ -669,6 +823,104 @@
           },
           {
             "type": "folder",
+            "addDate": 1758889039139,
+            "title": "工科软件",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1583656499000,
+                "title": "3DMAX 室内效果图初级案例课程_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+                "icon": "https://logo.clearbit.com/www.bilibili.com",
+                "url": "https://www.bilibili.com/video/av22977947?p=2"
+              },
+              {
+                "type": "link",
+                "addDate": 1523984557000,
+                "title": "3D ContentCentral",
+                "icon": "https://logo.clearbit.com/www.3dcontentcentral.com",
+                "url": "https://www.3dcontentcentral.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1586671627000,
+                "title": "Sketchfab - Publish & find 3D models online",
+                "icon": "https://logo.clearbit.com/sketchfab.com",
+                "url": "https://sketchfab.com/"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1758889039134,
+            "title": "人文素质",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1702906632000,
+                "title": "开讲啦视频_CCTV节目官网-CCTV-1_央视网(cctv.com)",
+                "icon": "https://logo.clearbit.com/tv.cctv.com",
+                "url": "http://tv.cctv.com/lm/kjl/videoset/index.shtml"
+              },
+              {
+                "type": "link",
+                "addDate": 1702906559000,
+                "title": "《2023主持人大赛》 20231006",
+                "icon": "https://logo.clearbit.com/tv.cctv.com",
+                "url": "https://tv.cctv.com/2023/10/06/VIDEbkmJmhebJeT7h8TdZf9c231006.shtml?spm=C55953877151.PuvgIQ6NQbQd.0.0"
+              },
+              {
+                "type": "link",
+                "addDate": 1702906438000,
+                "title": "新华广播_新华网",
+                "icon": "https://logo.clearbit.com/www.news.cn",
+                "url": "http://www.news.cn/video/xinhuaradio/zbslb/index.html"
+              },
+              {
+                "type": "link",
+                "addDate": 1684508833000,
+                "title": "续资治通鉴长编 - 中国哲学书电子化计划",
+                "icon": "https://logo.clearbit.com/ctext.org",
+                "url": "https://ctext.org/wiki.pl?if=gb&res=520633&remap=gb"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333212,
+                "title": "全历史",
+                "icon": "https://logo.clearbit.com/www.allhistory.com",
+                "url": "https://www.allhistory.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333217,
+                "title": "历史地图网-中国历史地图集-古代历史地图-中国古地图",
+                "icon": "https://logo.clearbit.com/www.laozhaopian5.com",
+                "url": "http://www.laozhaopian5.com/ditu/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333221,
+                "title": "历史地图_地图窝",
+                "icon": "https://logo.clearbit.com/m.onegreen.net",
+                "url": "http://m.onegreen.net/maps/List/List_1619.html"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333343,
+                "title": "中国历史地图集 谭其骧主编_中国历史地图集_国学导航",
+                "icon": "https://logo.clearbit.com/www.guoxue123.com",
+                "url": "http://www.guoxue123.com/other/map/zgmap/index.htm"
+              },
+              {
+                "type": "link",
+                "addDate": 1702905358000,
+                "title": "中国纪录片网-国家级纪录片新媒体综合性产业运营平台_央视网",
+                "icon": "https://logo.clearbit.com/www.docuchina.cn",
+                "url": "http://www.docuchina.cn/"
+              }
+            ]
+          },
+          {
+            "type": "folder",
             "addDate": 1758889039130,
             "title": "自然科学",
             "children": [
@@ -809,349 +1061,6 @@
           },
           {
             "type": "folder",
-            "addDate": 1762159816280,
-            "title": "通用搜索工具",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1666276234000,
-                "title": "神秘的热心网友 - 收集免费实用有趣的东西，做最好的资源导航",
-                "icon": "https://logo.clearbit.com/imyshare.com",
-                "url": "https://imyshare.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1702953773000,
-                "title": "Internet Archive: Digital Library of Free & Borrowable Books, Movies, Music & Wayback Machine",
-                "icon": "https://logo.clearbit.com/archive.org",
-                "url": "https://archive.org/"
-              },
-              {
-                "type": "link",
-                "addDate": 1758347629577,
-                "title": "学霸盘 - 百度网盘学习资料搜索下载神器",
-                "icon": "https://logo.clearbit.com/www.xuebapan.com",
-                "url": "https://www.xuebapan.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1758347758907,
-                "title": "盘搜-PanSeeker - 全网网盘资源聚合搜索",
-                "icon": "https://logo.clearbit.com/www.panseeker.com",
-                "url": "https://www.panseeker.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1758348209313,
-                "title": "珈珈搜索 - 全网优质网盘资源搜索聚合平台",
-                "icon": "https://logo.clearbit.com/feapi.xyz",
-                "url": "https://feapi.xyz/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333471,
-                "title": "超能搜 - 百度网盘搜索神器",
-                "icon": "https://logo.clearbit.com/www.chaonengso.com",
-                "url": "https://www.chaonengso.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1572836262000,
-                "title": "YourBittorrent",
-                "icon": "https://logo.clearbit.com/yourbittorrent.com",
-                "url": "https://yourbittorrent.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1572846623000,
-                "title": "Torrent Downloads - download free torrents!",
-                "icon": "https://logo.clearbit.com/www.torrentdownloads.me",
-                "url": "https://www.torrentdownloads.me/"
-              },
-              {
-                "type": "link",
-                "addDate": 1480769369000,
-                "title": "Download music, movies, games, software! The Pirate Bay - The galaxy's most resilient BitTorrent site",
-                "icon": "https://logo.clearbit.com/thepiratebay.org",
-                "url": "https://thepiratebay.org/"
-              },
-              {
-                "type": "link",
-                "addDate": 1705054012000,
-                "title": "小纸条-开放纯粹的资源网站",
-                "icon": "https://logo.clearbit.com/ali.gitcafe.ink",
-                "url": "https://ali.gitcafe.ink/"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1762159822957,
-            "title": "图片",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1759918333259,
-                "title": "360°航拍全景，全球360°虚拟游览，地球上最有趣的地方照片",
-                "icon": "https://logo.clearbit.com/airpano.org.cn",
-                "url": "https://airpano.org.cn/"
-              },
-              {
-                "type": "link",
-                "addDate": 1705053742000,
-                "title": "Awesome Wallpapers - wallhaven.cc",
-                "icon": "https://logo.clearbit.com/wallhaven.cc",
-                "url": "https://wallhaven.cc/"
-              },
-              {
-                "type": "link",
-                "addDate": 1715771003000,
-                "title": "Pushkeen.AI - Discover the best push notifications to grow your business",
-                "icon": "https://logo.clearbit.com/pushkeen.ai",
-                "url": "https://pushkeen.ai/"
-              },
-              {
-                "type": "link",
-                "addDate": 1487688529000,
-                "title": "Iconfont-阿里巴巴矢量图标库",
-                "icon": "https://logo.clearbit.com/www.iconfont.cn",
-                "url": "http://www.iconfont.cn/"
-              },
-              {
-                "type": "link",
-                "addDate": 1510740934000,
-                "title": "Free Stock Photos • picjumbo",
-                "icon": "https://logo.clearbit.com/picjumbo.com",
-                "url": "https://picjumbo.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1510740812000,
-                "title": "Beautiful Free Images | Unsplash",
-                "icon": "https://logo.clearbit.com/unsplash.com",
-                "url": "https://unsplash.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1510741035000,
-                "title": "NASA Image and Video Library",
-                "icon": "https://logo.clearbit.com/images.nasa.gov",
-                "url": "https://images.nasa.gov/"
-              },
-              {
-                "type": "link",
-                "addDate": 1520416456000,
-                "title": "免费图片 - Pixabay",
-                "icon": "https://logo.clearbit.com/pixabay.com",
-                "url": "https://pixabay.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333378,
-                "title": "Librestock Photos - Free Stock Photo Search Engine",
-                "icon": "https://logo.clearbit.com/librestock.com",
-                "url": "https://librestock.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1487688529000,
-                "title": "Design-Ready Objects for Adobe Photoshop",
-                "icon": "https://logo.clearbit.com/www.pixelsquid.com",
-                "url": "https://www.pixelsquid.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1760804858169,
-                "title": "Color wheel, a color palette generator | Adobe Color",
-                "icon": "https://logo.clearbit.com/color.adobe.com",
-                "url": "https://color.adobe.com/create/color-wheel"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333373,
-                "title": "Free Icons and Icon packs | +500,000 icons to download - Findicons.com",
-                "icon": "https://logo.clearbit.com/findicons.com",
-                "url": "https://findicons.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333531,
-                "title": "konachan.net - Konachan.com Anime Wallpapers",
-                "icon": "https://logo.clearbit.com/konachan.net",
-                "url": "https://konachan.net/"
-              },
-              {
-                "type": "link",
-                "addDate": 1762846811113,
-                "title": "ByteDance IconPark",
-                "icon": "https://logo.clearbit.com/iconpark.oceanengine.com",
-                "url": "https://iconpark.oceanengine.com/home"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1762159830026,
-            "title": "eBooks",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1594820179000,
-                "title": "首頁- 好讀",
-                "icon": "https://logo.clearbit.com/haodoo.net",
-                "url": "http://haodoo.net/?M=hd&P=welcome"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333577,
-                "title": "熊猫搜书_熊猫搜索_一站式读书学习导航站_聚合电子书及文档搜索_xmsoushu_xmsearch",
-                "icon": "https://logo.clearbit.com/xmsoushu.com",
-                "url": "https://xmsoushu.com/index.html#/"
-              },
-              {
-                "type": "link",
-                "addDate": 1494652756000,
-                "title": "Jiumo E-Book Search 鸠摩搜书 - 电子书搜索引擎",
-                "icon": "https://logo.clearbit.com/www.jiumodiary.com",
-                "url": "https://www.jiumodiary.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1716781347000,
-                "title": "今人新著_国学导航",
-                "icon": "https://logo.clearbit.com/guoxue123.com",
-                "url": "http://guoxue123.com/new/index.htm"
-              },
-              {
-                "type": "link",
-                "addDate": 1759923992613,
-                "title": "国家中小学智慧教育平台",
-                "icon": "https://logo.clearbit.com/basic.smartedu.cn",
-                "url": "https://basic.smartedu.cn/elecEdu?defaultTag=e7bbb2de-0590-11ed-9c79-92fc3b3249d5%2F6a74973a-0772-11ed-ac74-092ab92074e6%2F44bee8bc-54e6-11ed-9c34-850ba61fa9f4%2Fe7bbd296-0590-11ed-9c79-92fc3b3249d5"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333288,
-                "title": "高教书苑",
-                "icon": "https://logo.clearbit.com/ebook.hep.com.cn",
-                "url": "https://ebook.hep.com.cn/ebooks/h5/index.html#/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333299,
-                "title": "Bookzz.org",
-                "icon": "https://logo.clearbit.com/iyfbodn.com",
-                "url": "http://iyfbodn.com/?dn=bookzz.org&pid=9POT3387I&pbsubid=0a0381e7-8286-6bbd-1268-4570d65b6da3&noads=http%3A%2F%2Fiyfbodn.com%2F%3Fdn%3Dbookzz.org%26skipskenzo%3Dtrue"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333304,
-                "title": "电子图书公益阅读",
-                "icon": "https://logo.clearbit.com/read.nlc.cn",
-                "url": "http://read.nlc.cn/menhu/gyyd/index"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333308,
-                "title": "中国国家图书馆•中国国家数字图书馆",
-                "icon": "https://logo.clearbit.com/www.nlc.cn",
-                "url": "http://www.nlc.cn/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333313,
-                "title": "全国图书馆参考咨询联盟",
-                "icon": "https://logo.clearbit.com/www.ucdrs.superlib.net",
-                "url": "http://www.ucdrs.superlib.net/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333319,
-                "title": "超星读书-电子书在线免费阅读网站-中文免费电子书阅读网站",
-                "icon": "https://logo.clearbit.com/book.chaoxing.com",
-                "url": "http://book.chaoxing.com/#"
-              },
-              {
-                "type": "link",
-                "addDate": 1705053928000,
-                "title": "SoBooks - 一起分享阅读的乐趣~",
-                "icon": "https://logo.clearbit.com/sobooks.cc",
-                "url": "https://sobooks.cc/"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333338,
-                "title": "Download PDF magazines and ebook free USA, UK, Australia and other",
-                "icon": "https://logo.clearbit.com/magazinelib.com",
-                "url": "https://magazinelib.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1706015331000,
-                "title": "阅读 - 源仓库",
-                "icon": "https://logo.clearbit.com/www.yckceo.com",
-                "url": "https://www.yckceo.com/yuedu/shuyuan/index.html"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1762159904989,
-            "title": "MOOCs",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1702902915000,
-                "title": "华文慕课 - 中文MOOC平台",
-                "icon": "https://logo.clearbit.com/www.chinesemooc.org",
-                "url": "http://www.chinesemooc.org/"
-              },
-              {
-                "type": "link",
-                "addDate": 1702905292000,
-                "title": "首页 | 终身教育平台",
-                "icon": "https://logo.clearbit.com/le.ouchn.cn",
-                "url": "https://le.ouchn.cn/home"
-              },
-              {
-                "type": "link",
-                "addDate": 1758535745245,
-                "title": "爱课程",
-                "icon": "https://logo.clearbit.com/www.icourses.cn",
-                "url": "https://www.icourses.cn/sCourse/course_3064.html"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1762159981529,
-            "title": "热点资讯",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1759918333161,
-                "title": "BBC News",
-                "icon": "https://logo.clearbit.com/www.bbc.com",
-                "url": "https://www.bbc.com/zhongwen/simp"
-              },
-              {
-                "type": "link",
-                "addDate": 1759918333490,
-                "title": "今日热榜官网",
-                "icon": "https://logo.clearbit.com/tophub.today",
-                "url": "https://tophub.today/"
-              },
-              {
-                "type": "link",
-                "addDate": 1761876776146,
-                "title": "极客公园 - Qi Reader",
-                "icon": "https://logo.clearbit.com/www.qireader.com",
-                "url": "https://www.qireader.com/subscriptions/rmREjBzDL2LAQJdN"
-              }
-            ]
-          },
-          {
-            "type": "folder",
             "addDate": 1762160027018,
             "title": "游戏相关",
             "children": [
@@ -1271,36 +1180,155 @@
           },
           {
             "type": "folder",
-            "addDate": 1762160718169,
-            "title": "影视音",
+            "addDate": 1762160883196,
+            "title": "办公模板",
             "children": [
               {
                 "type": "link",
-                "addDate": 1762174459233,
-                "title": "Vfine Music - 商用版权音乐平台,专注正版音乐授权服务",
-                "icon": "https://logo.clearbit.com/www.vfinemusic.com",
-                "url": "https://www.vfinemusic.com/music-library?utm_source=baidu&utm_medium=search&utm_campaign=C-%E7%AB%9E%E5%93%81%E8%AF%8D&utm_content=%E7%AB%9E%E5%93%81%E5%93%81%E7%89%8C%E4%B8%AD%E6%96%87-B&utm_term=%E7%88%B1%E7%BB%99%E7%BD%91&bd_vid=8455043507776376630"
+                "addDate": 1762174459300,
+                "title": "PPT超级市场官网-PPT模板免费下载、最新PPT成品搜索",
+                "icon": "https://logo.clearbit.com/www.pptsupermarket.com",
+                "url": "https://www.pptsupermarket.com/"
               },
               {
                 "type": "link",
-                "addDate": 1762174459240,
-                "title": "分享交流下载字幕平台 - SubHD",
-                "icon": "https://logo.clearbit.com/subhd.tv",
-                "url": "https://subhd.tv/"
+                "addDate": 1762174459307,
+                "title": "OfficePLUS_微软官方Office模板服务平台_ppt模板_会员免费_工作总结_求职简历",
+                "icon": "https://logo.clearbit.com/www.officeplus.cn",
+                "url": "https://www.officeplus.cn/"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1762159904989,
+            "title": "MOOCs",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1702902915000,
+                "title": "华文慕课 - 中文MOOC平台",
+                "icon": "https://logo.clearbit.com/www.chinesemooc.org",
+                "url": "http://www.chinesemooc.org/"
               },
               {
                 "type": "link",
-                "addDate": 1762174459247,
-                "title": "Sub DH 高清影视下载",
-                "icon": "https://logo.clearbit.com/subdh.com",
-                "url": "https://subdh.com/"
+                "addDate": 1702905292000,
+                "title": "首页 | 终身教育平台",
+                "icon": "https://logo.clearbit.com/le.ouchn.cn",
+                "url": "https://le.ouchn.cn/home"
               },
               {
                 "type": "link",
-                "addDate": 1762174459255,
-                "title": "耐卡影音论坛-耐卡网旗下美剧影视论坛|欧美影音|日韩影音|港台国产影音|欧美剧集|日韩剧集|美女MM|耐卡影视-MC影讯网_原 耐卡影音论坛_ncarbbs - Ncar Team!",
-                "icon": "https://logo.clearbit.com/mcar.vip",
-                "url": "http://mcar.vip/forum.php"
+                "addDate": 1758535745245,
+                "title": "爱课程",
+                "icon": "https://logo.clearbit.com/www.icourses.cn",
+                "url": "https://www.icourses.cn/sCourse/course_3064.html"
+              }
+            ]
+          },
+          {
+            "type": "folder",
+            "addDate": 1762159830026,
+            "title": "eBooks",
+            "children": [
+              {
+                "type": "link",
+                "addDate": 1594820179000,
+                "title": "首頁- 好讀",
+                "icon": "https://logo.clearbit.com/haodoo.net",
+                "url": "http://haodoo.net/?M=hd&P=welcome"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333577,
+                "title": "熊猫搜书_熊猫搜索_一站式读书学习导航站_聚合电子书及文档搜索_xmsoushu_xmsearch",
+                "icon": "https://logo.clearbit.com/xmsoushu.com",
+                "url": "https://xmsoushu.com/index.html#/"
+              },
+              {
+                "type": "link",
+                "addDate": 1494652756000,
+                "title": "Jiumo E-Book Search 鸠摩搜书 - 电子书搜索引擎",
+                "icon": "https://logo.clearbit.com/www.jiumodiary.com",
+                "url": "https://www.jiumodiary.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1716781347000,
+                "title": "今人新著_国学导航",
+                "icon": "https://logo.clearbit.com/guoxue123.com",
+                "url": "http://guoxue123.com/new/index.htm"
+              },
+              {
+                "type": "link",
+                "addDate": 1759923992613,
+                "title": "国家中小学智慧教育平台",
+                "icon": "https://logo.clearbit.com/basic.smartedu.cn",
+                "url": "https://basic.smartedu.cn/elecEdu?defaultTag=e7bbb2de-0590-11ed-9c79-92fc3b3249d5%2F6a74973a-0772-11ed-ac74-092ab92074e6%2F44bee8bc-54e6-11ed-9c34-850ba61fa9f4%2Fe7bbd296-0590-11ed-9c79-92fc3b3249d5"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333288,
+                "title": "高教书苑",
+                "icon": "https://logo.clearbit.com/ebook.hep.com.cn",
+                "url": "https://ebook.hep.com.cn/ebooks/h5/index.html#/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333299,
+                "title": "Bookzz.org",
+                "icon": "https://logo.clearbit.com/iyfbodn.com",
+                "url": "http://iyfbodn.com/?dn=bookzz.org&pid=9POT3387I&pbsubid=0a0381e7-8286-6bbd-1268-4570d65b6da3&noads=http%3A%2F%2Fiyfbodn.com%2F%3Fdn%3Dbookzz.org%26skipskenzo%3Dtrue"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333304,
+                "title": "电子图书公益阅读",
+                "icon": "https://logo.clearbit.com/read.nlc.cn",
+                "url": "http://read.nlc.cn/menhu/gyyd/index"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333308,
+                "title": "中国国家图书馆•中国国家数字图书馆",
+                "icon": "https://logo.clearbit.com/www.nlc.cn",
+                "url": "http://www.nlc.cn/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333313,
+                "title": "全国图书馆参考咨询联盟",
+                "icon": "https://logo.clearbit.com/www.ucdrs.superlib.net",
+                "url": "http://www.ucdrs.superlib.net/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333319,
+                "title": "超星读书-电子书在线免费阅读网站-中文免费电子书阅读网站",
+                "icon": "https://logo.clearbit.com/book.chaoxing.com",
+                "url": "http://book.chaoxing.com/#"
+              },
+              {
+                "type": "link",
+                "addDate": 1705053928000,
+                "title": "SoBooks - 一起分享阅读的乐趣~",
+                "icon": "https://logo.clearbit.com/sobooks.cc",
+                "url": "https://sobooks.cc/"
+              },
+              {
+                "type": "link",
+                "addDate": 1759918333338,
+                "title": "Download PDF magazines and ebook free USA, UK, Australia and other",
+                "icon": "https://logo.clearbit.com/magazinelib.com",
+                "url": "https://magazinelib.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1706015331000,
+                "title": "阅读 - 源仓库",
+                "icon": "https://logo.clearbit.com/www.yckceo.com",
+                "url": "https://www.yckceo.com/yuedu/shuyuan/index.html"
               }
             ]
           },
@@ -1343,27 +1371,6 @@
                 "title": "字体下载-求字体网提供中文和英文字体库下载、识别与预览服务，找字体的好帮手",
                 "icon": "https://logo.clearbit.com/www.qiuziti.com",
                 "url": "http://www.qiuziti.com/"
-              }
-            ]
-          },
-          {
-            "type": "folder",
-            "addDate": 1762160883196,
-            "title": "办公模板",
-            "children": [
-              {
-                "type": "link",
-                "addDate": 1762174459300,
-                "title": "PPT超级市场官网-PPT模板免费下载、最新PPT成品搜索",
-                "icon": "https://logo.clearbit.com/www.pptsupermarket.com",
-                "url": "https://www.pptsupermarket.com/"
-              },
-              {
-                "type": "link",
-                "addDate": 1762174459307,
-                "title": "OfficePLUS_微软官方Office模板服务平台_ppt模板_会员免费_工作总结_求职简历",
-                "icon": "https://logo.clearbit.com/www.officeplus.cn",
-                "url": "https://www.officeplus.cn/"
               }
             ]
           }
@@ -1548,6 +1555,13 @@
             "title": "蛙蛙写作——超级AI智能写作助手",
             "icon": "https://logo.clearbit.com/wawawriter.com",
             "url": "https://wawawriter.com/app/tutorial-center"
+          },
+          {
+            "type": "link",
+            "addDate": 1762332136438,
+            "title": "Supabase | The Postgres Development Platform.",
+            "icon": "https://logo.clearbit.com/supabase.com",
+            "url": "https://supabase.com/"
           }
         ]
       },

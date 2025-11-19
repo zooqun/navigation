@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON文件测试</title>
+</head>
+<body>
+    <h1>JSON文件内容测试</h1>
+    <div id="result"></div>
+    <div id="error"></div>
+    
+    <script>
+        async function testJson() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`pintree.json?t=${timestamp}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                document.getElementById('result').innerHTML = `
+                    <h2>JSON文件加载成功</h2>
+                    <p>加载时间: ${new Date().toLocaleString()}</p>
+                    <p>数据类型: ${Array.isArray(data) ? '数组' : '对象'}</p>
+                    <p>顶级项目数量: ${data.length}</p>
+                    <h3>顶级分类:</h3>
+                    <ul>
+                        ${data.map(item => `<li>${item.title} (${item.type})</li>`).join('')}
+                    </ul>
+                    <h3>第一个分类的子项目:</h3>
+                    ${data[0] && data[0].children ? 
+                        `<ul>${data[0].children.slice(0, 5).map(child => 
+                            `<li>${child.title} (${child.type})</li>`
+                        ).join('')}</ul>` : 
+                        '无子项目'
+                    }
+                `;
+                
+                console.log('JSON数据:', data);
+                console.log('第一个分类:', data[0]);
+            } catch (error) {
+                document.getElementById('error').innerHTML = `
+                    <h2>错误信息</h2>
+                    <p>${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+                console.error('错误:', error);
+            }
+        }
+        
+        testJson();
+    </script>
+</body>
+</html>

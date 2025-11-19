@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构测试 - 目录降级效果</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .original { background: #e3f2fd; }
+        .transformed { background: #e8f5e8; }
+        .comparison { background: #fff3e0; }
+        h2 { color: #333; margin-top: 0; }
+        h3 { color: #666; margin-bottom: 10px; }
+        .tree-item { margin: 5px 0; padding: 5px; border-left: 3px solid #ccc; margin-left: 20px; }
+        .folder { border-left-color: #4CAF50; background: #f9f9f9; }
+        .link { border-left-color: #2196F3; background: #f0f8ff; }
+        .level-1 { margin-left: 0; font-weight: bold; }
+        .level-2 { margin-left: 20px; }
+        .level-3 { margin-left: 40px; }
+        .stats { display: flex; gap: 20px; margin: 15px 0; }
+        .stat-box { background: #f5f5f5; padding: 10px; border-radius: 5px; text-align: center; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #2196F3; }
+        .stat-label { font-size: 12px; color: #666; }
+        .highlight { background: #ffeb3b; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 目录结构降级效果测试</h1>
+        <p>这个页面展示了如何将原来的多级目录结构进行降级处理，将二级目录提升为一级目录的效果。</p>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function loadAndCompareData() {
+            try {
+                const response = await fetch(`pintree.json?t=${Date.now()}`);
+                const originalData = await response.json();
+                
+                // 转换数据结构（降级处理）
+                const transformedData = transformDataStructure(originalData);
+                
+                displayResults(originalData, transformedData);
+                
+            } catch (error) {
+                document.getElementById('results').innerHTML = `
+                    <div class="section" style="background: #ffebee; color: #c62828;">
+                        <h2>❌ 错误</h2>
+                        <p>数据加载失败: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function transformDataStructure(originalData) {
+            let transformedData = [];
+            
+            // 遍历原始数据的一级目录
+            originalData.forEach(rootItem => {
+                if (rootItem.type === 'folder' && rootItem.children) {
+                    // 将一级目录的子目录提升为一级目录
+                    rootItem.children.forEach(childItem => {
+                        if (childItem.type === 'folder') {
+                            // 创建新的一级目录（原二级目录）
+                            const newPrimaryCategory = {
+                                type: childItem.type,
+                                addDate: childItem.addDate,
+                                title: childItem.title,
+                                children: []
+                            };
+                            
+                            // 处理原三级目录，现在作为二级目录
+                            if (childItem.children) {
+                                childItem.children.forEach(grandChildItem => {
+                                    if (grandChildItem.type === 'folder') {
+                                        // 文件夹：作为新的二级目录
+                                        newPrimaryCategory.children.push({
+                                            type: grandChildItem.type,
+                                            addDate: grandChildItem.addDate,
+                                            title: grandChildItem.title,
+                                            children: grandChildItem.children || []
+                                        });
+                                    } else if (grandChildItem.type === 'link') {
+                                        // 链接：直接添加到当前目录
+                                        newPrimaryCategory.children.push(grandChildItem);
+                                    }
+                                });
+                            }
+                            
+                            transformedData.push(newPrimaryCategory);
+                        }
+                    });
+                }
+            });
+            
+            return transformedData;
+        }
+
+        function displayResults(original, transformed) {
+            const resultsDiv = document.getElementById('results');
+            
+            resultsDiv.innerHTML = `
+                <div class="section comparison">
+                    <h2>📊 结构对比概览</h2>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number">${getTotalFolders(original)}</div>
+                            <div class="stat-label">原始总文件夹数</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${getTotalLinks(original)}</div>
+                            <div class="stat-label">原始总链接数</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${transformed.length}</div>
+                            <div class="stat-label">转换后一级目录</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${getTotalLinks(transformed)}</div>
+                            <div class="stat-label">转换后总链接数</div>
+                        </div>
+                    </div>
+                    <p><strong>转换效果：</strong> 将原来的 <span class="highlight">${original.length}</span> 个一级目录转换为 <span class="highlight">${transformed.length}</span> 个一级目录，忽略了最外层的容器目录。</p>
+                </div>
+
+                <div class="section original">
+                    <h2>📁 原始数据结构</h2>
+                    <p>转换前的层级结构：</p>
+                    ${renderTree(original, 1, 'original')}
+                </div>
+
+                <div class="section transformed">
+                    <h2>🔄 转换后数据结构</h2>
+                    <p>转换后的层级结构（二级目录提升为一级目录）：</p>
+                    ${renderTree(transformed, 1, 'transformed')}
+                </div>
+
+                <div class="section comparison">
+                    <h2>📝 具体变化说明</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <h3>原始结构：</h3>
+                            <ul>
+                                <li>一级：Other bookmarks</li>
+                                <li>二级：资源</li>
+                                <li>三级：官方布告、工科软件、人文素质</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>转换后结构：</h3>
+                            <ul>
+                                <li>一级：<strong>资源</strong>（原二级提升）</li>
+                                <li>二级：<strong>官方布告、工科软件、人文素质</strong>（原三级提升）</li>
+                                <li>三级：原四级内容</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; padding: 10px; background: #e3f2fd; border-radius: 5px;">
+                        <strong>💡 效果：</strong> 用户现在可以直接看到"资源"作为一级目录，而不需要先点击"Other bookmarks"再进入"资源"。
+                    </p>
+                </div>
+            `;
+        }
+
+        function renderTree(data, level, type) {
+            let html = '';
+            data.forEach(item => {
+                const levelClass = `level-${level}`;
+                const itemClass = item.type === 'folder' ? 'folder' : 'link';
+                const icon = item.type === 'folder' ? '📁' : '🔗';
+                
+                html += `
+                    <div class="tree-item ${levelClass} ${itemClass}">
+                        <strong>${icon} ${item.title}</strong>
+                        ${item.type === 'folder' && item.children ? 
+                            `<span style="color: #666; font-size: 12px;"> (${item.children.length} 项)</span>` : 
+                            `<span style="color: #999; font-size: 12px;"> - ${item.url ? new URL(item.url).hostname : ''}</span>`
+                        }
+                    </div>
+                `;
+                
+                if (item.children && item.children.length > 0 && level < 4) {
+                    html += renderTree(item.children, level + 1, type);
+                }
+            });
+            return html;
+        }
+
+        function getTotalFolders(data, level = 0) {
+            let count = 0;
+            data.forEach(item => {
+                if (item.type === 'folder') {
+                    count++;
+                    if (item.children) {
+                        count += getTotalFolders(item.children, level + 1);
+                    }
+                }
+            });
+            return count;
+        }
+
+        function getTotalLinks(data, level = 0) {
+            let count = 0;
+            data.forEach(item => {
+                if (item.type === 'link') {
+                    count++;
+                } else if (item.type === 'folder' && item.children) {
+                    count += getTotalLinks(item.children, level + 1);
+                }
+            });
+            return count;
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadAndCompareData);
+    </script>
+</body>
+</html>

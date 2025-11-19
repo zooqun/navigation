@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>导航页面 - 层级结构 (v4.1)</title>
+    <link rel="stylesheet" href="style_v4.0.css?v=4.1">
+</head>
+<body>
+    <!-- 顶部一级导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>📚 导航中心</h1>
+            </div>
+            <nav class="primary-nav">
+                <ul id="primaryNav" class="nav-list">
+                    <!-- 一级导航将在这里动态生成 -->
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索所有资源..." />
+                <button id="searchBtn">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-container">
+        <!-- 左侧二级导航 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3 id="currentCategory">选择分类</h3>
+                <div class="stats">
+                    <span id="categoryCount">0</span> 个子分类
+                </div>
+            </div>
+            <nav class="secondary-nav">
+                <ul id="secondaryNav" class="secondary-nav-list">
+                    <!-- 二级导航将在这里动态生成 -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区域 -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2 id="contentTitle">所有资源</h2>
+                <div class="content-stats">
+                    <span id="resourceCount">0</span> 个资源
+                </div>
+            </div>
+            
+            <div class="breadcrumb" id="breadcrumb">
+                <!-- 面包屑导航 -->
+            </div>
+
+            <div class="content-grid" id="contentGrid">
+                <!-- 内容卡片将在这里动态生成 -->
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">📭</div>
+                <h3>暂无资源</h3>
+                <p>该分类下还没有添加任何资源</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" style="display: none;">
+        ↑ 返回顶部
+    </button>
+
+    <script src="script_v4.1.js?v=4.1"></script>
+</body>
+</html>

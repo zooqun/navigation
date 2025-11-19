@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层级导航 - 书签导航</title>
+    <link rel="stylesheet" href="style_v3.0.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部一级目录导航栏 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-bookmark"></i>
+                <span>书签导航</span>
+            </div>
+            <nav class="primary-nav">
+                <ul id="primary-nav-list">
+                    <!-- 一级目录将在这里动态生成 -->
+                </ul>
+            </nav>
+            <div class="nav-search">
+                <input type="text" id="search-input" placeholder="搜索书签...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容区域 -->
+    <div class="main-container">
+        <!-- 左侧子目录导航 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3 id="current-primary-title">选择分类</h3>
+                <div class="sidebar-stats">
+                    <span id="subcategory-count">0</span> 个子分类
+                </div>
+            </div>
+            <nav class="secondary-nav">
+                <ul id="secondary-nav-list">
+                    <!-- 子目录将在这里动态生成 -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区域 -->
+        <main class="content-area">
+            <div class="content-header">
+                <h2 id="current-path">首页</h2>
+                <div class="content-stats">
+                    <span id="bookmark-count">0</span> 个书签
+                </div>
+            </div>
+            
+            <div class="content-grid" id="content-grid">
+                <!-- 书签内容将在这里动态生成 -->
+            </div>
+            
+            <div class="loading-spinner" id="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>加载中...</span>
+            </div>
+            
+            <div class="no-content" id="no-content">
+                <i class="fas fa-folder-open"></i>
+                <p>暂无内容</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- 底部信息 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 书签导航系统 | 共 <span id="total-bookmarks">0</span> 个书签</p>
+        </div>
+    </footer>
+
+    <script src="script_v3.0.js"></script>
+</body>
+</html>

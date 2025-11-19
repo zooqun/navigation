@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页 - 我的收藏</title>
+    <link rel="stylesheet" href="style_v1.0.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>我的导航页</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索书签...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id="bookmarks-container">
+            <!-- JavaScript 将在这里动态生成书签内容 -->
+            <div class="loading">加载中...</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>基于书签数据生成的个人导航页 &copy; <span id="current-year"></span></p>
+    </footer>
+
+    <script src="script_v1.0.js"></script>
+</body>
+</html>

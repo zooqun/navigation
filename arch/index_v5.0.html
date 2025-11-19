@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页面 v5.0 - 目录降级版</title>
+    
+    <!-- 缓存控制 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="stylesheet" href="style_v5.0.css?v=5.0">
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🌐 导航页面 v5.0</h1>
+                <p class="subtitle">目录降级版 - 二级目录作为一级目录显示</p>
+            </div>
+            
+            <!-- 搜索框 -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 搜索资源..." class="search-input">
+                <button onclick="app.clearSearch()" class="search-clear" style="display: none;">清除</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航区域 -->
+    <nav class="navigation">
+        <div class="container">
+            <!-- 一级导航（原二级目录） -->
+            <div class="primary-nav" id="primaryNavigation">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- 侧边栏 - 二级导航（原三级目录） -->
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <h3>📂 分类</h3>
+                    </div>
+                    <nav class="secondary-nav" id="secondaryNavigation">
+                        <!-- 动态生成 -->
+                    </nav>
+                </aside>
+
+                <!-- 内容区域 -->
+                <section class="content">
+                    <!-- 面包屑导航 -->
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <a href="#" onclick="app.goHome()">🏠 首页</a>
+                    </div>
+
+                    <!-- 统计信息 -->
+                    <div class="statistics" id="statistics">
+                        <!-- 动态生成 -->
+                    </div>
+
+                    <!-- 内容显示区域 -->
+                    <div class="content-area" id="contentArea">
+                        <div class="loading-state">
+                            <div class="loading-spinner"></div>
+                            <p>正在加载数据...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" style="display: none;">
+        <span>↑</span>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 导航页面 v5.0 - 基于 pintree.json 构建</p>
+        </div>
+    </footer>
+
+    <!-- 引入脚本 -->
+    <script src="script_v5.0.js?v=5.0"></script>
+</body>
+</html>

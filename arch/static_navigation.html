@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人导航中心 - 静态版</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* 顶部导航栏 */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .category-tab {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #2c3e50;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-tab:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* 主要内容区域 */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 30px;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* 左侧侧边栏 */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* 独立滚动 */
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        /* 侧边栏滚动条样式 */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 3px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 3px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 16px;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-left-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .sidebar-nav a.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-left-color: #4f46e5;
+        }
+
+        /* 主内容区域 */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* 独立滚动 */
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        /* 内容区域滚动条样式 */
+        .content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .content::-webkit-scrollbar-track {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 4px;
+        }
+        
+        .content::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 4px;
+        }
+        
+        .content::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* 链接卡片网格 - 3列布局，每列宽度增加到当前宽度的1.3倍 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 325px));
+            gap: 15px;
+            width: 100%;
+            justify-items: stretch;
+            justify-content: flex-start;
+        }
+        
+        /* 确保链接卡片宽度一致 */
+        .link-card {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* 防止内容导致列宽不一致 - 已在下方完整定义.link-title样式 */
+        
+        .link-url {
+            word-break: break-all;
+            hyphens: auto;
+            font-size: 0.85em;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .link-card-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            margin-right: 15px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .link-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+            line-height: 1.4;
+            flex: 1;
+            /* 确保最多显示两行，增加区分度 */
+            display: block;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            /* 确保有足够的空间显示两行 */
+            min-height: 2.8em;
+            max-height: 2.8em;
+        }
+
+        .link-url {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding: 5px 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 6px;
+            /* 限制最多显示2行，超出部分省略 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            /* 在中等屏幕上改为2列布局 */
+            .link-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+                max-height: 50vh;
+            }
+            
+            .content {
+                max-height: 50vh;
+            }
+
+            .category-tabs {
+                justify-content: center;
+            }
+
+            .category-tab {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+
+            .top-nav h1 {
+                font-size: 2em;
+            }
+
+            /* 在小屏幕上改为1列布局 */
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .spinner {
+            border: 3px solid rgba(102, 126, 234, 0.1);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #475569;
+        }
+
+        /* 版本信息 */
+        .version-info {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .version-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .version-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <h1>个人导航中心 - 静态版</h1>
+            <div class="category-tabs" id="categoryTabs">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    加载中...
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content">
+        <!-- 左侧侧边栏 -->
+        <aside class="sidebar">
+            <h3>分类导航</h3>
+            <ul class="sidebar-nav" id="sidebarNav">
+                <!-- 动态生成侧边栏导航 -->
+            </ul>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="content">
+            <div id="contentContainer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    加载中...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="version-info">
+        静态导航页面 v1.0 | <a href="#" onclick="alert('纯静态版本，无需后台服务器\n可直接作为新标签页使用！'); return false;">使用说明</a>
+    </div>
+
+    <script>
+        // 导航数据 - 直接内联到HTML中，包含从pintree.json提取的完整数据
+        // 从pintree.json文件加载并转换导航数据
+        let navigationData = {};
+        
+        // 加载JSON文件并转换格式的函数
+        async function loadNavigationData() {
+            try {
+                // 从pintree.json文件读取数据
+                const response = await fetch('pintree.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const jsonData = await response.json();
+                
+                // 转换数据格式
+                // pintree.json格式: [{type: 'folder', title: '资源', children: [...]}]
+                // 转换为: {"资源": {"官方布告": [{type: 'link', title: '...', url: '...', icon: '...'}]}}
+                
+                // 遍历顶层文件夹
+                jsonData.forEach(topFolder => {
+                    if (topFolder.type === 'folder' && topFolder.title !== 'Other bookmarks') {
+                        const categoryData = {};
+                        
+                        // 遍历二级文件夹
+                        if (topFolder.children && Array.isArray(topFolder.children)) {
+                            topFolder.children.forEach(subFolder => {
+                                if (subFolder.type === 'folder') {
+                                    const linksArray = [];
+                                    
+                                    // 遍历链接
+                                    if (subFolder.children && Array.isArray(subFolder.children)) {
+                                        subFolder.children.forEach(item => {
+                                            if (item.type === 'link') {
+                                                linksArray.push({
+                                                    type: 'link',
+                                                    title: item.title || '未知标题',
+                                                    url: item.url || '#',
+                                                    icon: item.icon || '🔗' // 使用文件中的icon或默认图标
+                                                });
+                                            }
+                                        });
+                                    }
+                                    
+                                    // 添加子分类及链接
+                                    categoryData[subFolder.title] = linksArray;
+                                }
+                            });
+                        }
+                        
+                        // 添加主分类
+                        navigationData[topFolder.title] = categoryData;
+                    }
+                });
+                
+                console.log('导航数据加载成功:', navigationData);
+                return true;
+            } catch (error) {
+                console.error('加载导航数据失败:', error);
+                // 如果加载失败，使用默认数据结构避免页面崩溃
+                navigationData = {"默认分类": {"默认子分类": []}};
+                return false;
+            }
+        }
+        
+        // 初始化函数修改为异步，先加载数据再初始化页面
+        async function initApp() {
+            // 先加载导航数据
+            await loadNavigationData();
+            
+            // 然后执行原有的初始化逻辑
+            const categories = Object.keys(navigationData);
+            const categoryTabsContainer = document.querySelector('.category-tabs');
+            const categoryContentContainer = document.querySelector('.category-content');
+            
+            // 创建分类标签
+            categories.forEach(category => {
+                const tab = document.createElement('a');
+                tab.href = '#';
+                tab.className = 'category-tab';
+                tab.textContent = category;
+                
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    tab.classList.add('active');
+                    renderCategoryContent(category);
+                });
+                
+                categoryTabsContainer.appendChild(tab);
+            });
+            
+            // 默认激活第一个分类
+            if (categories.length > 0) {
+                const firstTab = document.querySelector('.category-tab');
+                if (firstTab) {
+                    firstTab.classList.add('active');
+                    renderCategoryContent(categories[0]);
+                }
+            }
+        }
+        "url": "https://ntcebm7.neea.edu.cn/apply/memapp/memLogin",
+        "icon": "🗺️"
+      },
+      {
+        "type": "link",
+        "title": "内蒙古人事考试网",
+        "url": "http://www.impta.com.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "呼和浩特市人事考试信息网",
+        "url": "http://www.hhpta.org.cn/html/Default.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "九原区人民政府",
+        "url": "https://www.jiuyuanqu.gov.cn/tzgg//",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "包头市教育局 - 包头教育云",
+        "url": "https://space-bt.nmgjyyun.cn/index.php?r=space/org/content/index&sid=150200&cid=221403&bid=",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "包头市人力资源和社会保障局",
+        "url": "http://rsj.baotou.gov.cn/sydwgkzpxx.jhtml",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "个人信用信息服务平台",
+        "url": "https://ipcrs.pbccrc.org.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "包头市教育局",
+        "url": "https://bt.nmgjyyun.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "包头稀土高新区",
+        "url": "http://www.rev.gov.cn/tzgg1/index.jhtml",
+        "icon": "🌐"
+      }
+    ],
+    "工科软件": [
+      {
+        "type": "link",
+        "title": "3DMAX 室内效果图初级案例课程_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+        "url": "https://www.bilibili.com/video/av22977947?p=2",
+        "icon": "📺"
+      },
+      {
+        "type": "link",
+        "title": "3D ContentCentral",
+        "url": "https://www.3dcontentcentral.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Sketchfab - Publish & find 3D models online",
+        "url": "https://sketchfab.com/",
+        "icon": "🔗"
+      }
+    ],
+    "人文素质": [
+      {
+        "type": "link",
+        "title": "开讲啦视频_CCTV节目官网-CCTV-1_央视网(cctv.com)",
+        "url": "http://tv.cctv.com/lm/kjl/videoset/index.shtml",
+        "icon": "🎬"
+      },
+      {
+        "type": "link",
+        "title": "《2023主持人大赛》 20231006",
+        "url": "https://tv.cctv.com/2023/10/06/VIDEbkmJmhebJeT7h8TdZf9c231006.shtml?spm=C55953877151.PuvgIQ6NQbQd.0.0",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "新华广播_新华网",
+        "url": "http://www.news.cn/video/xinhuaradio/zbslb/index.html",
+        "icon": "🎬"
+      },
+      {
+        "type": "link",
+        "title": "续资治通鉴长编 - 中国哲学书电子化计划",
+        "url": "https://ctext.org/wiki.pl?if=gb&res=520633&remap=gb",
+        "icon": "🗺️"
+      },
+      {
+        "type": "link",
+        "title": "全历史",
+        "url": "https://www.allhistory.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "历史地图网-中国历史地图集-古代历史地图-中国古地图",
+        "url": "http://www.laozhaopian5.com/ditu/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "历史地图_地图窝",
+        "url": "http://m.onegreen.net/maps/List/List_1619.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "中国历史地图集 谭其骧主编_中国历史地图集_国学导航",
+        "url": "http://www.guoxue123.com/other/map/zgmap/index.htm",
+        "icon": "🗺️"
+      },
+      {
+        "type": "link",
+        "title": "中国纪录片网-国家级纪录片新媒体综合性产业运营平台_央视网",
+        "url": "http://www.docuchina.cn/",
+        "icon": "🔗"
+      }
+    ],
+    "个人终端": [
+      {
+        "type": "link",
+        "title": "使用Cursor和Claude AI打造你的第一个App_cursor claude-CSDN博客",
+        "url": "https://blog.csdn.net/csdn1561168266/article/details/143925398",
+        "icon": "📰"
+      },
+      {
+        "type": "link",
+        "title": "手把手实现Cursor无缝接入Claude AI（附避坑指南）_cursor claude-CSDN博客",
+        "url": "https://blog.csdn.net/Lilith_0828/article/details/146882556",
+        "icon": "📰"
+      },
+      {
+        "type": "link",
+        "title": "Claude Code真的牛逼，Cursor不香了（附最新保姆级教程） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1939833494357402338",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "全网最细讲解 | 一文看懂开源自动化神器 n8n - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1935718749270418825",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "DeepSeek 本地化部署（保姆喂饭级教程） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/21030210489",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "免费开源神器OpenList，把阿里云/百度/夸克等网盘挂载为本地硬盘！搭配RaiDrive，全网网盘秒变本地F盘！ - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1940841097459929409",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "从真正的零组建一台日常使用PC+NAS_组nas-CSDN博客",
+        "url": "https://blog.csdn.net/weixin_42804324/article/details/128355529",
+        "icon": "📰"
+      },
+      {
+        "type": "link",
+        "title": "基于ipv6实现几乎零成本的内网穿透方案，小白的踩坑历程与经验分享 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/638004070",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "别再折腾配置了！一文看懂内网穿透，看看哪个最合适你ngrok、frp、Cloudflare Tunnel 和 pingg - 掘金",
+        "url": "https://juejin.cn/post/7514490441317597196",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Ngrok内网穿透教程（国内地址）_ngrok官网-CSDN博客",
+        "url": "https://blog.csdn.net/a992795427/article/details/91539870",
+        "icon": "📰"
+      },
+      {
+        "type": "link",
+        "title": "massgravel/Microsoft-Activation-Scripts: A Windows and Office activator using HWID / Ohook / KMS38 / Online KMS activation methods, with a focus on open-source code and fewer antivirus detections.",
+        "url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "Release v5.3.0 User Preview · v2fly/v2ray-core · GitHub",
+        "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.3.0",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "【2023】适合小白的V2Ray(VLESS+WebSocket+TLS)一键搭建图文教程，V2Ray搭建教程，免费域名",
+        "url": "https://www.itblogcn.com/article/2026.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "适用于 Linux 的 Windows 子系统文档 | Microsoft Learn",
+        "url": "https://learn.microsoft.com/zh-cn/windows/wsl/",
+        "icon": "🪟"
+      },
+      {
+        "type": "link",
+        "title": "baotou | Weather Location Codes/IDs for Apple iPhone, Android Tablet, Linux Ubuntu",
+        "url": "https://weather.codes/search/?q=baotou",
+        "icon": "🌤️"
+      },
+      {
+        "type": "link",
+        "title": "Manual - Rainmeter",
+        "url": "https://docs.rainmeter.net/manual/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "windows11 安装WSL2全流程_wsl2安装-CSDN博客",
+        "url": "https://blog.csdn.net/u011119817/article/details/130745551",
+        "icon": "📰"
+      },
+      {
+        "type": "link",
+        "title": "整理github上开源的前十个AI 小说项目。 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1888262970552862495",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "分享12款国内外AI写小说工具（2025年最新） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1927928909783074330",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "如何优雅地管理照片？这才是我推荐的最佳工具！ - 少数派",
+        "url": "https://sspai.com/post/81694",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "秩序、安全、同步 个人文件管理体系构建思路 - 少数派",
+        "url": "https://sspai.com/post/55842",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "英特尔® Extreme Tuning Utility 超频 (Intel® XTU)",
+        "url": "https://www.intel.cn/content/www/cn/zh/gaming/resources/overclocking-xtu-guide.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "Windows LTSC Download | MAS",
+        "url": "https://massgrave.dev/windows_ltsc_links",
+        "icon": "🔗"
+      }
+    ],
+    "电磁学": [
+      {
+        "type": "link",
+        "title": "磁场电磁学和理论入门指南",
+        "url": "https://cn.comsol.com/multiphysics/electromagnetics",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "各种磁导率看晕๑_๑了，一文梳理 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/103491463",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "电磁学（8）——磁场高斯定理，磁场环路定理 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/183249745",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "电磁学（7）——磁场，电流的磁效应，毕奥萨伐尔定律 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/100573155",
+        "icon": "🔗"
+      }
+    ],
+    "写作": [
+      {
+        "type": "link",
+        "title": "宋代道教 影响深远_道教杂谈_道教之音_宋代，道教,影响深远",
+        "url": "https://www.daoisms.org/article/zatan/info-14790.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "宋朝的科举制度",
+        "url": "https://www.zhangzhiyong.cn/wenhua/songchao_keju.htm",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "编电视剧时请留意一下：宋朝人是怎么称呼的_手机搜狐网",
+        "url": "https://m.sohu.com/a/285168402_99996707/?pvid=000115_3w_a",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "干支纪历（年月日时） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/34971860#:~:text=%E5%9B%A0%E6%AD%A4%EF%BC%8C%E8%87%AA%E7%84%B6%E6%95%B0%E4%B8%BA5,%E5%B9%B2%E5%9C%B0%E6%94%AF%E6%98%AF%EF%BC%9A%E4%B8%99%E8%BE%B0%E3%80%82",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "北宋、辽时期历史地图全图_历史地图网",
+        "url": "http://www.txlzp.com/ditu/beisongliao.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "北宋皇家园林——玉津园 - 品读开封 - 开封网",
+        "url": "https://www.kf.cn/c/2020-12-14/147342.shtml",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "人散曲终：古代“曲宴”制度为何淹没于历史红尘中_凤凰网",
+        "url": "https://guoxue.ifeng.com/c/7sSHl7uvHpF",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "宋朝那些事儿_宋朝那些事儿_酷读网",
+        "url": "https://www.ickoo.com.cn/book/14/1188471.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "科学网—“制书”与宋代中枢政务运行",
+        "url": "https://news.sciencenet.cn/sbhtmlnews/2019/9/349495.shtm",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "中国古代史第九讲----“祖宗之法”与宋朝制度（上） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/113954644",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "中国古代史第十讲----“祖宗之法”与宋朝制度（下） - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/114281377",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "北宋何以“百年无内乱”-中工文化-中工网",
+        "url": "http://www.workercn.cn/34059/202111/22/211122082331219.shtml",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "宋朝官职等级",
+        "url": "http://xh.5156edu.com/page/z8339m2884j19577.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "宋朝开国皇帝赵匡胤的皇后都有谁？贺氏,王氏,宋氏_宋朝故事_人物简介网",
+        "url": "http://255star.com/songchaogushi/34254.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "北宋前期社会各阶层对辽态度研究 - 中国知网",
+        "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD2011&filename=2010180027.nh&uniplatform=NZKPT&v=6Jtzf-25r9vdgddSTwe2vup43I_4y_m-jg5bfW1NGdlV5v1gGlTlkvngr9wrtLlL",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "建隆_百度百科",
+        "url": "https://baike.baidu.com/item/%E5%BB%BA%E9%9A%86/6924415",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "宋朝的财政岁入到底有多少钱_手机搜狐网",
+        "url": "https://m.sohu.com/a/286615980_556504/?pvid=000115_3w_a",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "五代十国时期三位花蕊夫人，两个被赵匡胤收入后宫，一个被杀_凤凰网",
+        "url": "https://history.ifeng.com/c/7sLc7FwWnEC",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "宋代对田宅产权的维护与贱民制度的消亡",
+        "url": "http://ccrs.ccnu.edu.cn/List/H5Details.aspx?tid=19534",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "宋朝钱币_百度百科",
+        "url": "https://baike.baidu.com/item/%E5%AE%8B%E6%9C%9D%E9%92%B1%E5%B8%81/5728660",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "天会_历史纪年年号查询",
+        "url": "https://nianhao.supfree.net/itunes.asp?id=%CC%EC%BB%E1",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "佛教历史——宋代佛教-网友文摘内容-佛教在线",
+        "url": "http://www.fjnet.com/wywz/wywznr/201602/t20160215_238552.htm",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "宋朝文化的宗教",
+        "url": "https://zhidao.baidu.com/question/1757399481637613468.html",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "北宋前期中央机构表_职官",
+        "url": "https://www.sohu.com/a/385761277_523187",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "古代女子外貌描写生成",
+        "url": "https://www.xuanpai.com/miaoxie/waimao/1",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "纪妖（原名知妖）",
+        "url": "https://www.cbaigui.com/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "《位面手册》链接目录 - The Ring of Wonder",
+        "url": "https://trow.cc/board/showtopic=239",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "dnd法术全列表剖析 - 豆丁网",
+        "url": "https://www.docin.com/p-2351260608.html",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "時間規範資料庫",
+        "url": "https://authority.dila.edu.tw/time/index.php",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "天会_历史纪年年号查询",
+        "url": "https://nianhao.supfree.net/itunes.asp?id=%CC%EC%BB%E1",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "純美蘋果園 - 论坛首页",
+        "url": "http://45.79.87.129/bbs/index.php",
+        "icon": "🔗"
+      }
+    ],
+    "自然科学": [
+      {
+        "type": "link",
+        "title": "https://mp.weixin.qq.com/s/BDLqwRDW_2IcGlf4cd_vSg",
+        "url": "https://mp.weixin.qq.com/s/BDLqwRDW_2IcGlf4cd_vSg",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "https://mp.weixin.qq.com/s/QGFnOSYkGGST88X8Lsh2GA",
+        "url": "https://mp.weixin.qq.com/s/QGFnOSYkGGST88X8Lsh2GA",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "练习 0 配置环境 - 《笨办法学Python3（Learn Python3 The Hard W…",
+        "url": "https://www.bookstack.cn/read/LearnPython3TheHardWay/spilt.4.learn-py3.md",
+        "icon": "🐍"
+      },
+      {
+        "type": "link",
+        "title": "GitHub - FavioVazquez/ds-cheatsheets: List of Data Science Cheatsheets to rule the world",
+        "url": "https://github.com/FavioVazquez/ds-cheatsheets",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "Interactive Linear Algebra",
+        "url": "https://textbooks.math.gatech.edu/ila/",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "数据结构_浙江大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/zju-93001",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "计算机网络_中国科学技术大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/USTC-1463123169",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "计算机组成原理_华中科技大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/HUST-1003159001",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "程序设计入门——C语言_浙江大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/zju-199001",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "操作系统_哈尔滨工业大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/HIT-1002531008#/info",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "控制工程基础_吉林大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/JLU-1205800824?from=searchPage&outVendor=zw_mooc_pcssjg_",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "信号与系统_哈尔滨工业大学_中国大学MOOC(慕课)",
+        "url": "https://www.icourse163.org/course/HIT-1206448828?from=searchPage&outVendor=zw_mooc_pcssjg_",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "AI for Beginners",
+        "url": "https://microsoft.github.io/AI-For-Beginners/?id=content",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "01. 数据结构与算法 | 算法通关手册（LeetCode）",
+        "url": "https://algo.itcharge.cn/00.Introduction/01.Data-Structures-Algorithms/#_2-2-%E7%AE%97%E6%B3%95%E8%BF%BD%E6%B1%82%E7%9A%84%E7%9B%AE%E6%A0%87",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "project-based-learning",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "free-programming-books-zh_CN",
+        "url": "https://github.com/justjavac/free-programming-books-zh_CN",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "Linear Algebra | Mathematics | MIT OpenCourseWare",
+        "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "undefined Department | Stanford University Bulletin",
+        "url": "https://bulletin.stanford.edu/departments/COMPUTSCI/overview#bachelortext",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Bachelors Curriculum - Admitted 2014, 2015 & 2016 | Carnegie Mellon University - Computer Science Department",
+        "url": "https://csd.cmu.edu/undergraduate/bachelors-curriculum-admitted-2014-2015-2016",
+        "icon": "🔗"
+      }
+    ],
+    "通用搜索工具": [
+      {
+        "type": "link",
+        "title": "神秘的热心网友 - 收集免费实用有趣的东西，做最好的资源导航",
+        "url": "https://imyshare.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Internet Archive: Digital Library of Free & Borrowable Books, Movies, Music & Wayback Machine",
+        "url": "https://archive.org/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "学霸盘 - 百度网盘学习资料搜索下载神器",
+        "url": "https://www.xuebapan.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "盘搜-PanSeeker - 全网网盘资源聚合搜索",
+        "url": "https://www.panseeker.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "珈珈搜索 - 全网优质网盘资源搜索聚合平台",
+        "url": "https://feapi.xyz/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "超能搜 - 百度网盘搜索神器",
+        "url": "https://www.chaonengso.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "YourBittorrent",
+        "url": "https://yourbittorrent.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Torrent Downloads - download free torrents!",
+        "url": "https://www.torrentdownloads.me/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Download music, movies, games, software! The Pirate Bay - The galaxy's most resilient BitTorrent site",
+        "url": "https://thepiratebay.org/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "小纸条-开放纯粹的资源网站",
+        "url": "https://ali.gitcafe.ink/",
+        "icon": "🔗"
+      }
+    ],
+    "图片": [
+      {
+        "type": "link",
+        "title": "360°航拍全景，全球360°虚拟游览，地球上最有趣的地方照片",
+        "url": "https://airpano.org.cn/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "Awesome Wallpapers - wallhaven.cc",
+        "url": "https://wallhaven.cc/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Pushkeen.AI - Discover the best push notifications to grow your business",
+        "url": "https://pushkeen.ai/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "Iconfont-阿里巴巴矢量图标库",
+        "url": "http://www.iconfont.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Free Stock Photos • picjumbo",
+        "url": "https://picjumbo.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Beautiful Free Images | Unsplash",
+        "url": "https://unsplash.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "NASA Image and Video Library",
+        "url": "https://images.nasa.gov/",
+        "icon": "🖼️"
+      },
+      {
+        "type": "link",
+        "title": "免费图片 - Pixabay",
+        "url": "https://pixabay.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Librestock Photos - Free Stock Photo Search Engine",
+        "url": "https://librestock.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Design-Ready Objects for Adobe Photoshop",
+        "url": "https://www.pixelsquid.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Color wheel, a color palette generator | Adobe Color",
+        "url": "https://color.adobe.com/create/color-wheel",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Free Icons and Icon packs | +500,000 icons to download - Findicons.com",
+        "url": "https://findicons.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "konachan.net - Konachan.com Anime Wallpapers",
+        "url": "https://konachan.net/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "ByteDance IconPark",
+        "url": "https://iconpark.oceanengine.com/home",
+        "icon": "🔗"
+      }
+    ],
+    "eBooks": [
+      {
+        "type": "link",
+        "title": "首頁- 好讀",
+        "url": "http://haodoo.net/?M=hd&P=welcome",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "熊猫搜书_熊猫搜索_一站式读书学习导航站_聚合电子书及文档搜索_xmsoushu_xmsearch",
+        "url": "https://xmsoushu.com/index.html#/",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "Jiumo E-Book Search 鸠摩搜书 - 电子书搜索引擎",
+        "url": "https://www.jiumodiary.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "今人新著_国学导航",
+        "url": "http://guoxue123.com/new/index.htm",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "国家中小学智慧教育平台",
+        "url": "https://basic.smartedu.cn/elecEdu?defaultTag=e7bbb2de-0590-11ed-9c79-92fc3b3249d5%2F6a74973a-0772-11ed-ac74-092ab92074e6%2F44bee8bc-54e6-11ed-9c34-850ba61fa9f4%2Fe7bbd296-0590-11ed-9c79-92fc3b3249d5",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "高教书苑",
+        "url": "https://ebook.hep.com.cn/ebooks/h5/index.html#/",
+        "icon": "🌐"
+      },
+      {
+        "type": "link",
+        "title": "Bookzz.org",
+        "url": "http://iyfbodn.com/?dn=bookzz.org&pid=9POT3387I&pbsubid=0a0381e7-8286-6bbd-1268-4570d65b6da3&noads=http%3A%2F%2Fiyfbodn.com%2F%3Fdn%3Dbookzz.org%26skipskenzo%3Dtrue",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "电子图书公益阅读",
+        "url": "http://read.nlc.cn/menhu/gyyd/index",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "中国国家图书馆•中国国家数字图书馆",
+        "url": "http://www.nlc.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "全国图书馆参考咨询联盟",
+        "url": "http://www.ucdrs.superlib.net/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "超星读书-电子书在线免费阅读网站-中文免费电子书阅读网站",
+        "url": "http://book.chaoxing.com/#",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "SoBooks - 一起分享阅读的乐趣~",
+        "url": "https://sobooks.cc/",
+        "icon": "📚"
+      },
+      {
+        "type": "link",
+        "title": "Download PDF magazines and ebook free USA, UK, Australia and other",
+        "url": "https://magazinelib.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "阅读 - 源仓库",
+        "url": "https://www.yckceo.com/yuedu/shuyuan/index.html",
+        "icon": "🌐"
+      }
+    ],
+    "MOOCs": [
+      {
+        "type": "link",
+        "title": "华文慕课 - 中文MOOC平台",
+        "url": "http://www.chinesemooc.org/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "首页 | 终身教育平台",
+        "url": "https://le.ouchn.cn/home",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "爱课程",
+        "url": "https://www.icourses.cn/sCourse/course_3064.html",
+        "icon": "🌐"
+      }
+    ],
+    "热点资讯": [
+      {
+        "type": "link",
+        "title": "BBC News",
+        "url": "https://www.bbc.com/zhongwen/simp",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "今日热榜官网",
+        "url": "https://tophub.today/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "极客公园 - Qi Reader",
+        "url": "https://www.qireader.com/subscriptions/rmREjBzDL2LAQJdN",
+        "icon": "📚"
+      }
+    ],
+    "游戏相关": [
+      {
+        "type": "link",
+        "title": "Minecraft Wiki",
+        "url": "https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki",
+        "icon": "🔗"
+      }
+    ],
+    "国家标准": [
+      {
+        "type": "link",
+        "title": "食品伙伴网下载中心_食品行业资料和标准交流_食品伙伴网",
+        "url": "http://down.foodmate.net/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "标准网 - 免费国家标准查询、下载网站 - 标准网_www.biaozhun.org",
+        "url": "https://www.biaozhun.org/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "国家标准全文公开",
+        "url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+        "icon": "🔗"
+      }
+    ],
+    "学术资料": [
+      {
+        "type": "link",
+        "title": "pubscholar.cn",
+        "url": "https://pubscholar.cn/",
+        "icon": "🎓"
+      },
+      {
+        "type": "link",
+        "title": "Sci-Hub: 对每个人的知识",
+        "url": "https://sci-hub.se/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Clarivate - data, insights and analytics for the innovation lifecycle",
+        "url": "https://clarivate.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Z-Library – 世界上最大的电子图书馆。自由访问知识和文化。",
+        "url": "https://zh.singlelogin.re/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Z-Library Project - Electronic library Z. Download books free",
+        "url": "https://z-lib.id/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Semantic Scholar | AI-Powered Research Tool",
+        "url": "https://www.semanticscholar.org/",
+        "icon": "🎓"
+      }
+    ],
+    "教育资料": [
+      {
+        "type": "link",
+        "title": "菁优网-小学初中高中题库,中考高考教育资源,专业教学教研平台",
+        "url": "https://www.jyeoo.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "第一试卷网",
+        "url": "https://www.shijuan1.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "考试酷(examcoo)-永久免费的电子作业与在线考试系统云平台",
+        "url": "https://www.examcoo.com/",
+        "icon": "🔗"
+      }
+    ],
+    "影视音": [
+      {
+        "type": "link",
+        "title": "Vfine Music - 商用版权音乐平台,专注正版音乐授权服务",
+        "url": "https://www.vfinemusic.com/music-library?utm_source=baidu&utm_medium=search&utm_campaign=C-%E7%AB%9E%E5%93%81%E8%AF%8D&utm_content=%E7%AB%9E%E5%93%81%E5%93%81%E7%89%8C%E4%B8%AD%E6%96%87-B&utm_term=%E7%88%B1%E7%BB%99%E7%BD%91&bd_vid=8455043507776376630",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "分享交流下载字幕平台 - SubHD",
+        "url": "https://subhd.tv/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Sub DH 高清影视下载",
+        "url": "https://subdh.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "耐卡影音论坛-耐卡网旗下美剧影视论坛|欧美影音|日韩影音|港台国产影音|欧美剧集|日韩剧集|美女MM|耐卡影视-MC影讯网_原 耐卡影音论坛_ncarbbs - Ncar Team!",
+        "url": "http://mcar.vip/forum.php",
+        "icon": "🔗"
+      }
+    ],
+    "字体": [
+      {
+        "type": "link",
+        "title": "字体天下-提供各类字体的免费下载和在线预览服务",
+        "url": "http://www.fonts.net.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "方正字库官网——中国人 方正字",
+        "url": "https://www.foundertype.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "字体天下-提供各类字体的免费下载和在线预览服务",
+        "url": "https://www.fonts.net.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "汉仪字库-用心绽放文字之美",
+        "url": "http://www.hanyi.com.cn/home",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "字体下载-求字体网提供中文和英文字体库下载、识别与预览服务，找字体的好帮手",
+        "url": "http://www.qiuziti.com/",
+        "icon": "🔗"
+      }
+    ],
+    "办公模板": [
+      {
+        "type": "link",
+        "title": "PPT超级市场官网-PPT模板免费下载、最新PPT成品搜索",
+        "url": "https://www.pptsupermarket.com/",
+        "icon": "📑"
+      },
+      {
+        "type": "link",
+        "title": "OfficePLUS_微软官方Office模板服务平台_ppt模板_会员免费_工作总结_求职简历",
+        "url": "https://www.officeplus.cn/",
+        "icon": "🖋️"
+      }
+    ]
+  },
+  "云服务": {
+    "主要链接": [
+      {
+        "type": "link",
+        "title": "百度智能云-登录",
+        "url": "https://login.bce.baidu.com/?redirect=https%3A%2F%2Fconsole.bce.baidu.com%2Fai%2F%3F_%3D1689731091274#/ai/ocr/app/list",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "Claude",
+        "url": "https://claude.ai/chat/5cc36fdb-e49a-43cf-a2c1-cbcc0046aaab",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "Welcome to Runway - Runway",
+        "url": "https://app.runwayml.com/login",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "DeepSeek",
+        "url": "https://chat.deepseek.com/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "zooqun",
+        "url": "https://cnb.cool/zooqun",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "搜索 | M365 Copilot",
+        "url": "https://m365.cloud.microsoft/search/?fromcode=cmmiadtp424&origindomain=Office&auth=1&client-request-id=f046b302-86f0-47fa-9af4-bf746fc0839d",
+        "icon": "🪟"
+      },
+      {
+        "type": "link",
+        "title": "PyScript",
+        "url": "https://pyscript.com/dashboard",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Decks - AnkiWeb",
+        "url": "https://ankiweb.net/decks",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "百度智能云-登录",
+        "url": "https://login.bce.baidu.com/?account=&redirect=http%3A%2F%2Fconsole.bce.baidu.com%2Fai%2F%3F_%3D1665278218835#/ai/ocr/overview/index",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "PlayPhrase.me: Site for cinema archaeologists.",
+        "url": "https://www.playphrase.me/#/search?q=cutest+thing+you've+ever+seen&pos=0&language=en",
+        "icon": "🎮"
+      },
+      {
+        "type": "link",
+        "title": "Get Started - default (Workspace) - Visual Studio Code",
+        "url": "https://vscode.dev/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "33台词 - 通过台词找影片素材",
+        "url": "https://33.agilestudio.cn/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "ProcessOn",
+        "url": "https://www.processon.com/diagrams",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "金山文档",
+        "url": "https://www.kdocs.cn/latest",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "幕布",
+        "url": "https://mubu.com/app",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Overleaf",
+        "url": "https://cn.overleaf.com/project",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "百度翻译开放平台",
+        "url": "https://fanyi-api.baidu.com/api/trans/product/desktop",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "ARC官网-腾讯",
+        "url": "https://arc.tencent.com/zh/ai-demos/faceRestoration",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "Effidit",
+        "url": "https://effidit.qq.com/en",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "腾讯智影-在线智能视频创作平台",
+        "url": "https://zenvideo.qq.com/",
+        "icon": "🎬"
+      },
+      {
+        "type": "link",
+        "title": "星月写作",
+        "url": "https://xingyuexiezuo.com/#/register",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "文心一言",
+        "url": "https://yiyan.baidu.com/",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "文心一格 - AI艺术和创意辅助平台",
+        "url": "https://yige.baidu.com/creation",
+        "icon": "🔍"
+      },
+      {
+        "type": "link",
+        "title": "讯飞星火认知大模型",
+        "url": "https://passport.xfyun.cn/login",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "蛙蛙写作——超级AI智能写作助手",
+        "url": "https://wawawriter.com/app/tutorial-center",
+        "icon": "🔗"
+      }
+    ]
+  },
+  "效率工具": {
+    "主要链接": [
+      {
+        "type": "link",
+        "title": "XIU2/TrackersListCollection: 🎈 Updated daily! A list of popular BitTorrent Trackers! / 每天更新！全网热门 BT Tracker 列表！",
+        "url": "https://github.com/XIU2/TrackersListCollection",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "WantWords 反向词典",
+        "url": "https://wantwords.net/",
+        "icon": "📝"
+      },
+      {
+        "type": "link",
+        "title": "深言达意 – 找词找句",
+        "url": "https://www.shenyandayi.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "近邻词汇检索 @明达明达 #明达明达的口袋#",
+        "url": "https://tool.mingdawoo.com/lang/nearby_word/",
+        "icon": "📝"
+      },
+      {
+        "type": "link",
+        "title": "Tagul - Word Cloud Art",
+        "url": "https://tagul.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "书法字体转换器在线转换-艺术字体在线生成器设计-第一字体网",
+        "url": "http://www.diyiziti.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "图片压缩，在线图片压缩软件，PNG压缩，GIF压缩，JPG压缩，网页加速，图片加速",
+        "url": "http://www.tuhaokuai.com/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "人工智能老照片无损修复, 利用2022年最先进人工智能 AI 将老照片无损高清修复（支持老照片修复、老照片上色和魔法动态照片）",
+        "url": "https://jpghd.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Ready to live all your cartoon dreams at a time?",
+        "url": "https://toonme.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "免费 AI 线上照片卡通化工具，一秒将照片变卡通 - MyEdit",
+        "url": "https://myedit.online/cn/photo-editor/image-cartoonizer",
+        "icon": "🖼️"
+      },
+      {
+        "type": "link",
+        "title": "PDF解密 - 免费的在线PDF密码移除软件",
+        "url": "https://smallpdf.com/cn/unlock-pdf",
+        "icon": "📄"
+      },
+      {
+        "type": "link",
+        "title": "Pic-Fix | Photo Restoration | Houston",
+        "url": "https://www.pic-fix.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "在线抠图软件_图片去除背景 | remove.bg – remove.bg",
+        "url": "https://www.remove.bg/zh",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Magic Eraser : Remove unwanted things in seconds",
+        "url": "https://magicstudio.com/zh/magiceraser",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "TinyPNG – Compress WebP, PNG and JPEG images intelligently",
+        "url": "https://tinypng.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Image Extractor",
+        "url": "https://extract.pics/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Bigjpg - AI人工智能图片无损放大 - 使用人工智能深度卷积神经网络(CNN)无损放大图片",
+        "url": "https://bigjpg.com/zh",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Word Cloud Generator - WordArt.com",
+        "url": "https://wordart.com/",
+        "icon": "📝"
+      },
+      {
+        "type": "link",
+        "title": "Literature Map Software for Lit Reviews & Research | Litmaps",
+        "url": "https://www.litmaps.com/",
+        "icon": "🗺️"
+      },
+      {
+        "type": "link",
+        "title": "Convertio — 文件转换器",
+        "url": "https://convertio.co/zh/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Convert document, image, video and audio files online",
+        "url": "https://www.aconvert.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "ChartCube - 在线图表制作工具",
+        "url": "https://chartcube.alipay.com/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "ColorDrop",
+        "url": "https://colordrop.io/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "Happy Hues - Curated colors in context.",
+        "url": "https://www.happyhues.co/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "The Brand Hub for Remote Creative Teams | Niice",
+        "url": "https://niice.co/",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "爱给网_音效配乐_3D模型_视频素材_游戏素材_免费下载",
+        "url": "https://www.aigei.com/",
+        "icon": "🤖"
+      },
+      {
+        "type": "link",
+        "title": "瀑布流图片浏览器",
+        "url": "https://wlm3201.github.io/Masonry_Image_Viewer/",
+        "icon": "💻"
+      },
+      {
+        "type": "link",
+        "title": "Z2H字帖",
+        "url": "https://paper.z2h.cn/pen-control",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "在线LaTeX公式编辑器-编辑器",
+        "url": "https://www.latexlive.com/home",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "蒙大拿州地址生成器 - 美国地址生成器 - 美国身份生成器",
+        "url": "https://www.meiguodizhi.com/usa-address/montana",
+        "icon": "🔗"
+      },
+      {
+        "type": "link",
+        "title": "朋友圈文案生成器 - https://shadiao.app",
+        "url": "https://pyq.shadiao.app/",
+        "icon": "🔗"
+      }
+    ]
+  },
+  "JustFun": {
+    "主要链接": [
+      {
+        "type": "link",
+        "title": "URL Snake!",
+        "url": "https://demian.ferrei.ro/snake#|%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%A1%80%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%A0%A4%E2%A0%A4%E2%A0%84%E2%9F%8B%E2%9F%8B|[score:1]",
+        "icon": "🔗"
+      }
+    ]
+  }
+};
+
+        // 全局变量
+        let currentCategory = '';
+        let currentSubcategory = '';
+
+        // 初始化应用
+        function initApp() {
+            try {
+                // 渲染页面
+                renderCategoryTabs();
+                renderInitialContent();
+                
+            } catch (error) {
+                console.error('初始化失败:', error);
+                document.getElementById('contentContainer').innerHTML = `
+                    <div class="empty-state">
+                        <h3>加载失败</h3>
+                        <p>请刷新页面重试</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 渲染分类标签页
+        function renderCategoryTabs() {
+            const tabsContainer = document.getElementById('categoryTabs');
+            const categories = Object.keys(navigationData);
+            
+            tabsContainer.innerHTML = '';
+            
+            categories.forEach((category, index) => {
+                const tab = document.createElement('a');
+                tab.className = 'category-tab';
+                tab.href = '#';
+                tab.textContent = category;
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectCategory(category);
+                });
+                
+                if (index === 0) {
+                    tab.classList.add('active');
+                }
+                
+                tabsContainer.appendChild(tab);
+            });
+        }
+
+        // 渲染初始内容
+        function renderInitialContent() {
+            const categories = Object.keys(navigationData);
+            if (categories.length > 0) {
+                selectCategory(categories[0]);
+            }
+        }
+
+        // 选择分类
+        function selectCategory(category) {
+            currentCategory = category;
+            
+            // 更新标签页样式
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent === category) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // 渲染侧边栏
+            renderSidebar(category);
+            
+            // 渲染内容
+            renderContent(category);
+        }
+
+        // 渲染侧边栏
+        function renderSidebar(category) {
+            const sidebar = document.getElementById('sidebarNav');
+            const subcategories = Object.keys(navigationData[category]);
+            
+            sidebar.innerHTML = '';
+            
+            subcategories.forEach((subcategory, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = subcategory;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectSubcategory(subcategory);
+                });
+                
+                if (index === 0) {
+                    a.classList.add('active');
+                }
+                
+                li.appendChild(a);
+                sidebar.appendChild(li);
+            });
+        }
+
+        // 选择子分类
+        function selectSubcategory(subcategory) {
+            currentSubcategory = subcategory;
+            
+            // 更新侧边栏样式
+            document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent === subcategory) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // 渲染内容
+            renderContent(currentCategory);
+        }
+
+        // 渲染内容
+        function renderContent(category) {
+            const container = document.getElementById('contentContainer');
+            const subcategories = navigationData[category];
+            
+            if (!subcategories) {
+                container.innerHTML = '<div class="empty-state"><h3>暂无内容</h3></div>';
+                return;
+            }
+            
+            // 如果没有选择子分类，显示第一个子分类
+            if (!currentSubcategory || !subcategories[currentSubcategory]) {
+                currentSubcategory = Object.keys(subcategories)[0];
+                // 更新侧边栏
+                renderSidebar(category);
+            }
+            
+            const links = subcategories[currentSubcategory] || [];
+            
+            if (links.length === 0) {
+                container.innerHTML = '<div class="empty-state"><h3>该分类下暂无链接</h3></div>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div class="section active">
+                    <h2>${currentCategory} - ${currentSubcategory}</h2>
+                    <div class="link-grid">
+                        ${links.map(link => createLinkCard(link)).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // 添加点击事件
+            container.querySelectorAll('.link-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = card.getAttribute('data-url');
+                    if (url && url !== '#') {
+                        window.open(url, '_blank');
+                    }
+                });
+            });
+        }
+
+        // 创建链接卡片
+        function createLinkCard(link) {
+            // 从URL中提取域名，用于获取网站favicon
+            function getDomainFromUrl(url) {
+                try {
+                    // 确保URL有协议前缀
+                    let cleanUrl = url;
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        cleanUrl = 'https://' + url;
+                    }
+                    const urlObj = new URL(cleanUrl);
+                    return urlObj.hostname;
+                } catch (e) {
+                    // 如果无法解析URL，返回默认值
+                    return '';
+                }
+            }
+            
+            const title = link.title || '未知标题';
+            const url = link.url || '#';
+            
+            // 获取域名并生成favicon URL
+            const domain = getDomainFromUrl(url);
+            const faviconUrl = domain ? `https://www.google.com/s2/favicons?domain=${domain}&sz=64` : '';
+            
+            // 创建图标元素 - 优先使用favicon
+            let iconElement = '';
+            if (faviconUrl) {
+                // 使用img标签显示网站favicon
+                iconElement = `<img src="${faviconUrl}" alt="${domain}" onerror="this.onerror=null; this.src='';">`;
+            } else {
+                // 如果无法获取favicon，使用默认图标
+                iconElement = '🔗';
+            }
+            
+            return `
+                <div class="link-card" data-url="${url}">
+                    <div class="link-card-header">
+                        <div class="link-icon">${iconElement}</div>
+                        <div class="link-title">${title}</div>
+                    </div>
+                    <div class="link-url">${url}</div>
+                </div>
+            `;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // 添加键盘快捷键
+        document.addEventListener('keydown', async (e) => {
+            // Ctrl+R 刷新页面
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault(); // 阻止默认的刷新行为
+                await initApp(); // 调用异步初始化函数
+            }
+        });
+    </script>
+</body>
+</html>

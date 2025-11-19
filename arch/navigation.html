@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人导航中心</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* 顶部导航栏 */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .category-tab {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #2c3e50;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-tab:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* 主要内容区域 */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* 左侧侧边栏 */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 16px;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-left-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .sidebar-nav a.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-left-color: #4f46e5;
+        }
+
+        /* 主内容区域 */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* 链接卡片网格 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .link-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            margin-right: 15px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .link-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .link-url {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding: 5px 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 6px;
+            word-break: break-all;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .category-tabs {
+                justify-content: center;
+            }
+
+            .category-tab {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+
+            .top-nav h1 {
+                font-size: 2em;
+            }
+
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .spinner {
+            border: 3px solid rgba(102, 126, 234, 0.1);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <h1>个人导航中心</h1>
+            <div class="category-tabs" id="categoryTabs">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    正在加载导航数据...
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content">
+        <!-- 左侧侧边栏 -->
+        <aside class="sidebar">
+            <h3>分类导航</h3>
+            <ul class="sidebar-nav" id="sidebarNav">
+                <!-- 动态生成侧边栏导航 -->
+            </ul>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="content">
+            <div id="contentContainer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    正在加载内容...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 导航数据 - 从JSON文件读取
+        let navigationData = null;
+        let currentCategory = '';
+        let currentSubcategory = '';
+
+        // 初始化应用
+        async function initApp() {
+            try {
+                // 加载JSON数据
+                const response = await fetch('./pintree.json');
+                const data = await response.json();
+                
+                // 解析数据
+                navigationData = parseNavigationData(data);
+                
+                // 渲染页面
+                renderCategoryTabs();
+                renderInitialContent();
+                
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                document.getElementById('contentContainer').innerHTML = `
+                    <div class="empty-state">
+                        <h3>数据加载失败</h3>
+                        <p>请检查pintree.json文件是否存在且格式正确</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 解析导航数据
+        function parseNavigationData(data) {
+            const result = {};
+            
+            // 跳过"Other bookmarks"一级目录
+            const mainFolder = data[0];
+            if (mainFolder && mainFolder.title === 'Other bookmarks' && mainFolder.children) {
+                // 处理二级目录
+                mainFolder.children.forEach(category => {
+                    if (category.type === 'folder' && category.children) {
+                        result[category.title] = {};
+                        
+                        // 处理三级目录
+                        category.children.forEach(subcategory => {
+                            if (subcategory.type === 'folder' && subcategory.children) {
+                                result[category.title][subcategory.title] = subcategory.children;
+                            } else if (subcategory.type === 'link') {
+                                // 如果二级目录下有直接链接，创建一个"其他"分类
+                                if (!result[category.title]['其他']) {
+                                    result[category.title]['其他'] = [];
+                                }
+                                result[category.title]['其他'].push(subcategory);
+                            }
+                        });
+                    }
+                });
+            }
+            
+            return result;
+        }
+
+        // 渲染分类标签页
+        function renderCategoryTabs() {
+            const tabsContainer = document.getElementById('categoryTabs');
+            const categories = Object.keys(navigationData);
+            
+            tabsContainer.innerHTML = '';
+            
+            categories.forEach((category, index) => {
+                const tab = document.createElement('a');
+                tab.className = 'category-tab';
+                tab.href = '#';
+                tab.textContent = category;
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectCategory(category);
+                });
+                
+                if (index === 0) {
+                    tab.classList.add('active');
+                }
+                
+                tabsContainer.appendChild(tab);
+            });
+        }
+
+        // 渲染初始内容
+        function renderInitialContent() {
+            const categories = Object.keys(navigationData);
+            if (categories.length > 0) {
+                selectCategory(categories[0]);
+            }
+        }
+
+        // 选择分类
+        function selectCategory(category) {
+            currentCategory = category;
+            
+            // 更新标签页样式
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent === category) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // 渲染侧边栏
+            renderSidebar(category);
+            
+            // 渲染内容
+            renderContent(category);
+        }
+
+        // 渲染侧边栏
+        function renderSidebar(category) {
+            const sidebar = document.getElementById('sidebarNav');
+            const subcategories = Object.keys(navigationData[category]);
+            
+            sidebar.innerHTML = '';
+            
+            subcategories.forEach((subcategory, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = subcategory;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectSubcategory(subcategory);
+                });
+                
+                if (index === 0) {
+                    a.classList.add('active');
+                }
+                
+                li.appendChild(a);
+                sidebar.appendChild(li);
+            });
+        }
+
+        // 选择子分类
+        function selectSubcategory(subcategory) {
+            currentSubcategory = subcategory;
+            
+            // 更新侧边栏样式
+            document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent === subcategory) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // 渲染内容
+            renderContent(currentCategory);
+        }
+
+        // 渲染内容
+        function renderContent(category) {
+            const container = document.getElementById('contentContainer');
+            const subcategories = navigationData[category];
+            
+            if (!subcategories) {
+                container.innerHTML = '<div class="empty-state"><h3>暂无内容</h3></div>';
+                return;
+            }
+            
+            // 如果没有选择子分类，显示所有内容
+            if (!currentSubcategory || !subcategories[currentSubcategory]) {
+                currentSubcategory = Object.keys(subcategories)[0];
+                // 更新侧边栏
+                renderSidebar(category);
+            }
+            
+            const links = subcategories[currentSubcategory] || [];
+            
+            if (links.length === 0) {
+                container.innerHTML = '<div class="empty-state"><h3>该分类下暂无链接</h3></div>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div class="section active">
+                    <h2>${currentCategory} - ${currentSubcategory}</h2>
+                    <div class="link-grid">
+                        ${links.map(link => createLinkCard(link)).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // 添加点击事件
+            container.querySelectorAll('.link-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = card.getAttribute('data-url');
+                    if (url) {
+                        window.open(url, '_blank');
+                    }
+                });
+            });
+        }
+
+        // 创建链接卡片
+        function createLinkCard(link) {
+            const icon = link.icon || '🔗';
+            const title = link.title || '未知标题';
+            const url = link.url || '#';
+            
+            return `
+                <div class="link-card" data-url="${url}">
+                    <div class="link-card-header">
+                        <div class="link-icon">
+                            ${icon.startsWith('http') ? `<img src="${icon}" alt="icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display: none;">🔗</span>` : icon}
+                        </div>
+                        <div class="link-title">${title}</div>
+                    </div>
+                    <div class="link-url">${url}</div>
+                </div>
+            `;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
