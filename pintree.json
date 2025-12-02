@@ -251,6 +251,13 @@
                 "title": "ByteDance IconPark",
                 "icon": "https://logo.clearbit.com/iconpark.oceanengine.com",
                 "url": "https://iconpark.oceanengine.com/home"
+              },
+              {
+                "type": "link",
+                "addDate": 1764574891721,
+                "title": "RGB颜色对照表",
+                "icon": "https://logo.clearbit.com/tool.oschina.net",
+                "url": "https://tool.oschina.net/commons?type=3"
               }
             ]
           },
@@ -517,6 +524,13 @@
                 "title": "Skin Frost Glass V7 for Rainmeter download on VSThemes.org",
                 "icon": "https://logo.clearbit.com/vsthemes.org",
                 "url": "https://vsthemes.org/en/skins/rainmeter/68411-frost-glass-v7.html"
+              },
+              {
+                "type": "link",
+                "addDate": 1764226967205,
+                "title": "Johnshall/Shadowrocket-ADBlock-Rules-Forever: 提供多款 Shadowrocket 规则，拥有强劲的广告过滤功能。每日 8 时重新构建规则。",
+                "icon": "https://logo.clearbit.com/github.com",
+                "url": "https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever?tab=readme-ov-file"
               }
             ]
           },
@@ -1371,6 +1385,13 @@
                 "title": "字体下载-求字体网提供中文和英文字体库下载、识别与预览服务，找字体的好帮手",
                 "icon": "https://logo.clearbit.com/www.qiuziti.com",
                 "url": "http://www.qiuziti.com/"
+              },
+              {
+                "type": "link",
+                "addDate": 1764147801684,
+                "title": "Unicode 符号表 - 所有 Unicode 字符及其代码都在一页上 (◕‿◕) SYMBL",
+                "icon": "https://logo.clearbit.com/symbl.cc",
+                "url": "https://symbl.cc/cn/unicode-table/#enclosed-alphanumerics"
               }
             ]
           }
@@ -1800,6 +1821,13 @@
             "title": "URL Snake!",
             "icon": "https://logo.clearbit.com/demian.ferrei.ro",
             "url": "https://demian.ferrei.ro/snake#|%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%A1%80%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%9F%8B%E2%A0%A4%E2%A0%A4%E2%A0%84%E2%9F%8B%E2%9F%8B|[score:1]"
+          },
+          {
+            "type": "link",
+            "addDate": 1763779466521,
+            "title": "LeoLabs | Persistent Orbital Intelligence Propelling the dynamic space era",
+            "icon": "https://logo.clearbit.com/leolabs.space",
+            "url": "https://leolabs.space/"
           }
         ]
       }
